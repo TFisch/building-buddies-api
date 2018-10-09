@@ -1,3 +1,7 @@
 module.exports = {
-    "extends": "airbnb-base"
+  extends: 'airbnb-base',
+  rules: {
+    'func-names': 'off',
+    'import/order': 'off'
+  }
 };
