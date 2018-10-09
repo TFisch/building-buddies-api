@@ -16,7 +16,6 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
   const { name, address } = req.body;
   const newBuilding = { name, address };
-  console.log(newBuilding);
   const requiredParams = ['name', 'address'];
 
   requiredParams.map((param) => {
@@ -28,8 +27,16 @@ router.post('/', (req, res) => {
   });
 
   database('buildings')
-    .insert(newBuilding, 'id')
-    .then(building => res.status(201).json({ id: building[0] }))
+    .where('name', newBuilding.name)
+    .then((response) => {
+      if (response.length > 0) {
+        return res.status(409).send({ error: 'That building already exists' });
+      }
+      return database('buildings')
+        .insert(newBuilding, 'id')
+        .then(building => res.status(201).json({ id: building[0] }))
+        .catch(err => res.status(500).json({ err }));
+    })
     .catch(err => res.status(500).json({ err }));
 });
 
