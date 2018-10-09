@@ -3,6 +3,8 @@ module.exports = {
   rules: {
     'func-names': 'off',
     'import/order': 'off',
-    camelcase: 'off'
+    'camelcase': 'off',
+    'import/newline-after-import': 'off',
+    'no-plusplus': 'off'
   }
 };
