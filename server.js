@@ -1,10 +1,21 @@
 const express = require('express');
 
 const app = express();
+const bodyParser = require('body-parser');
+
+app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
   res.send('hello world');
 });
+
+const buildings = require('./routes/buildings');
+const users = require('./routes/users');
+const interests = require('./routes/interests');
+
+app.use('/api/v1/buildings', buildings);
+app.use('/api/v1/users', users);
+app.use('/api/v1/interests', interests);
 
 app.set('port', process.env.PORT || 3000);
 app.listen(app.get('port'), () => {
