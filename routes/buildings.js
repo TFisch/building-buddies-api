@@ -30,7 +30,7 @@ router.post('/', (req, res) => {
     .where('name', newBuilding.name)
     .then((response) => {
       if (response.length > 0) {
-        return res.status(409).send({ error: 'That building already exists' });
+        return res.status(409).send({ error: 'That building already exists.' });
       }
       return database('buildings')
         .insert(newBuilding, 'id')
