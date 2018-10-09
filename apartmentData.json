@@ -1,0 +1,962 @@
+[
+	{
+		"address": "1910 S Josephine St\nDenver, CO\n",
+		"name": "Modera Observatory Park"
+	},
+	{
+		"address": "6301 W Hampden Ave\nDenver, CO\n",
+		"name": "The Modern Apartment Homes"
+	},
+	{
+		"address": "1600 Glenarm Pl\nDenver, CO\n",
+		"name": "1600 Glenarm"
+	},
+	{
+		"address": "9888 E Vassar Dr\nDenver, CO\n",
+		"name": "Alta Springs"
+	},
+	{
+		"address": "2200 Market St\nDenver, CO\n",
+		"name": "Premier Lofts"
+	},
+	{
+		"address": "7555 E Warren Dr\nDenver, CO\n",
+		"name": "The Parc at Cherry Creek"
+	},
+	{
+		"address": "1776 Broadway\nDenver, CO\n",
+		"name": "SkyHouse Denver"
+	},
+	{
+		"address": "2002 W 76th Ave\nDenver, CO\n",
+		"name": "The Villas on 76th"
+	},
+	{
+		"address": "7100 E Mississippi Ave\nDenver, CO\n",
+		"name": "Spyglass Hill"
+	},
+	{
+		"address": "7571 Technology Way\nDenver, CO\n",
+		"name": "Pearl Apartments"
+	},
+	{
+		"address": "3550 S Kendall St\nDenver, CO\n",
+		"name": "Advenir Bear Valley"
+	},
+	{
+		"address": "2905 Inca St\nDenver, CO\n",
+		"name": "Griffis Union Station"
+	},
+	{
+		"address": "2424 W Caithness Pl\nDenver, CO\n",
+		"name": "LoHi Gold Apartments"
+	},
+	{
+		"address": "1211 S Quebec Way\nDenver, CO\n",
+		"name": "Advenir at Cherry Creek South"
+	},
+	{
+		"address": "1755 S Beeler St\nDenver, CO\n",
+		"name": "Whisper Sky"
+	},
+	{
+		"address": "2900 Roslyn Street\nDenver, CO\n",
+		"name": "Botanica Town Center"
+	},
+	{
+		"address": "7500 E Quincy Ave\nDenver, CO\n",
+		"name": "Edge DTC"
+	},
+	{
+		"address": "240 S Monaco Pkwy\nDenver, CO\n",
+		"name": "The Lex at Lowry"
+	},
+	{
+		"address": "3215 Tejon Street\nDenver, CO\n",
+		"name": "Alexan LoHi at Dixon Plaza"
+	},
+	{
+		"address": "201 East Mississippi Avenue\nDenver, CO\n",
+		"name": "The Henry"
+	},
+	{
+		"address": "1880 Arapahoe St\nDenver, CO\n",
+		"name": "The Apartments at Denver Place"
+	},
+	{
+		"address": "55 N Cook St\nDenver, CO\n",
+		"name": "Alexan Cherry Creek"
+	},
+	{
+		"address": "901 Sherman St\nDenver, CO\n",
+		"name": "Archer Tower"
+	},
+	{
+		"address": "350 S Jackson St\nDenver, CO\n",
+		"name": "Talavera Apartments"
+	},
+	{
+		"address": "4665 S Monaco St\nDenver, CO\n",
+		"name": "Monaco Row"
+	},
+	{
+		"address": "2020 Lawrence St\nDenver, CO\n",
+		"name": "2020 Lawrence"
+	},
+	{
+		"address": "360 S Monroe St\nDenver, CO\n",
+		"name": "Gables Cherry Creek"
+	},
+	{
+		"address": "9110 E Florida Ave\nDenver, CO\n",
+		"name": "Addison at Cherry Creek"
+	},
+	{
+		"address": "1975 19th St\nDenver, CO\n",
+		"name": "Alara Union Station"
+	},
+	{
+		"address": "255 E Speer Blvd\nDenver, CO\n",
+		"name": "Gables Speer Blvd"
+	},
+	{
+		"address": "530 25th St\nDenver, CO\n",
+		"name": "The Wheatley"
+	},
+	{
+		"address": "4000 Albion St\nDenver, CO\n",
+		"name": "Park Hill 4000"
+	},
+	{
+		"address": "2360 E Evans Ave\nDenver, CO\n",
+		"name": "One Observatory Park"
+	},
+	{
+		"address": "330 Acoma St\nDenver, CO\n",
+		"name": "Baker Tower"
+	},
+	{
+		"address": "1001 S Havana St\nDenver, CO\n",
+		"name": "Meridian Garden"
+	},
+	{
+		"address": "2855 Arapahoe St\nDenver, CO\n",
+		"name": "The Villages at Curtis Park"
+	},
+	{
+		"address": "888 S Oneida St\nDenver, CO\n",
+		"name": "Cedar Run"
+	},
+	{
+		"address": "1859 28th St\nDenver, CO\n",
+		"name": "Post River North"
+	},
+	{
+		"address": "1101 E Bayaud Ave\nDenver, CO\n",
+		"name": "Country Club Towers II & III"
+	},
+	{
+		"address": "1001 E Bayaud Ave\nDenver, CO\n",
+		"name": "Country Club Tower & Gardens"
+	},
+	{
+		"address": "1801 Arapahoe St\nDenver, CO\n",
+		"name": "Skyline 1801"
+	},
+	{
+		"address": "300 E 17th Ave\nDenver, CO\n",
+		"name": "300 East Seventeenth"
+	},
+	{
+		"address": "4363 S Quebec St\nDenver, CO\n",
+		"name": "Parliament"
+	},
+	{
+		"address": "1503 S Galena Way\nDenver, CO\n",
+		"name": "Apres Apartment Homes"
+	},
+	{
+		"address": "2300 Walnut St\nDenver, CO\n",
+		"name": "The Douglas"
+	},
+	{
+		"address": "2350 S University Blvd\nDenver, CO\n",
+		"name": "Observatory Park Place"
+	},
+	{
+		"address": "1550 Raleigh St\nDenver, CO\n",
+		"name": "Regatta Sloan’s Lake"
+	},
+	{
+		"address": "8400 E Yale Ave\nDenver, CO\n",
+		"name": "Ascent"
+	},
+	{
+		"address": "8000 W Crestline Ave\nDenver, CO\n",
+		"name": "Westlake Greens"
+	},
+	{
+		"address": "4775 Argonne St\nDenver, CO\n",
+		"name": "Redstone Ranch"
+	},
+	{
+		"address": "13500 Albrook Dr\nDenver, CO\n",
+		"name": "The Crossing Apartment Homes"
+	},
+	{
+		"address": "3257 S Parker Rd\nDenver, CO\n",
+		"name": "Axis at Nine Mile Station"
+	},
+	{
+		"address": "2785 N Speer Blvd\nDenver, CO\n",
+		"name": "2785 Speer"
+	},
+	{
+		"address": "1035 Sherman St\nDenver, CO\n",
+		"name": "Poets Row"
+	},
+	{
+		"address": "2234 S Trenton Way\nDenver, CO\n",
+		"name": "The Covington on Cherry Creek Apartments by Cortland"
+	},
+	{
+		"address": "2121 Delgany St\nDenver, CO\n",
+		"name": "The Metro Urban Apartments"
+	},
+	{
+		"address": "1000 S Broadway\nDenver, CO\n",
+		"name": "1000 S. Broadway Apartments"
+	},
+	{
+		"address": "6515 E Union Ave\nDenver, CO\n",
+		"name": "Camden Belleview Station Apartments"
+	},
+	{
+		"address": "5250 E Cherry Creek South Dr\nDenver, CO\n",
+		"name": "Creekside Apartments"
+	},
+	{
+		"address": "8008 Montview Blvd\nDenver, CO\n",
+		"name": "Advenir At Stapleton Apartments"
+	},
+	{
+		"address": "817 17th St\nDenver, CO\n",
+		"name": "Bank and Boston Lofts Apartments"
+	},
+	{
+		"address": "3201 Brighton Blvd\nDenver, CO\n",
+		"name": "Dylan"
+	},
+	{
+		"address": "7500 Dakin St\nDenver, CO\n",
+		"name": "Boulder Crossroads"
+	},
+	{
+		"address": "2525 Wewatta Way\nDenver, CO\n",
+		"name": "AMLI Denargo Market"
+	},
+	{
+		"address": "1300 S Willow St\nDenver, CO\n",
+		"name": "Allure"
+	},
+	{
+		"address": "5100 Leetsdale Dr\nDenver, CO\n",
+		"name": "The Atrii"
+	},
+	{
+		"address": "1800 W 85th Ave\nDenver, CO\n",
+		"name": "Tuscan Heights Apartments"
+	},
+	{
+		"address": "4982 S Ulster St\nDenver, CO\n",
+		"name": "Arabella"
+	},
+	{
+		"address": "755 E 19th Ave\nDenver, CO\n",
+		"name": "AMLI Park Avenue"
+	},
+	{
+		"address": "970 Pennsylvania St\nDenver, CO\n",
+		"name": "970 Pennsylvania Apartments"
+	},
+	{
+		"address": "10050 E Harvard Ave\nDenver, CO\n",
+		"name": "Woodstream Village"
+	},
+	{
+		"address": "1000 Grant St\nDenver, CO\n",
+		"name": "1000 Grant"
+	},
+	{
+		"address": "1935 N. Logan St\nDenver, CO\n",
+		"name": "Radius Uptown Apartments"
+	},
+	{
+		"address": "8330 E Quincy Ave\nDenver, CO\n",
+		"name": "Summit Ridge"
+	},
+	{
+		"address": "805 Dahlia St\nDenver, CO\n",
+		"name": "805 Dahlia"
+	},
+	{
+		"address": "2560 Welton St\nDenver, CO\n",
+		"name": "The Lydian"
+	},
+	{
+		"address": "10000 E Alameda Ave\nDenver, CO\n",
+		"name": "The Ridge at Lowry"
+	},
+	{
+		"address": "75 S Washington St\nDenver, CO\n",
+		"name": "45-75 S. WASHINGTON"
+	},
+	{
+		"address": "929 Marion St\nDenver, CO\n",
+		"name": "The Stanley"
+	},
+	{
+		"address": "4500 S Monaco St\nDenver, CO\n",
+		"name": "Cierra Crest Apartment Homes"
+	},
+	{
+		"address": "1950 Pennsylvania St\nDenver, CO\n",
+		"name": "Uptown Square Apartment Homes"
+	},
+	{
+		"address": "816 Acoma St\nDenver, CO\n",
+		"name": "Acoma"
+	},
+	{
+		"address": "3222 E 1st Ave\nDenver, CO\n",
+		"name": "Steele Creek"
+	},
+	{
+		"address": "515 Clarkson St\nDenver, CO\n",
+		"name": "515 Clarkson"
+	},
+	{
+		"address": "2570 S Dayton Way\nDenver, CO\n",
+		"name": "Dayton Crossing"
+	},
+	{
+		"address": "825 Dahlia St\nDenver, CO\n",
+		"name": "825 Dahlia"
+	},
+	{
+		"address": "4697 E Louisiana Ave\nDenver, CO\n",
+		"name": "The Lodge Apartment Homes"
+	},
+	{
+		"address": "1550 Platte St\nDenver, CO\n",
+		"name": "Commons Park West"
+	},
+	{
+		"address": "3400 South Lowell Boulevard\nDenver, CO\n",
+		"name": "Loretto Heights Apartments"
+	},
+	{
+		"address": "80 S Broadway\nDenver, CO\n",
+		"name": "The Werner"
+	},
+	{
+		"address": "1 E Bayaud Ave\nDenver, CO\n",
+		"name": "White Palace"
+	},
+	{
+		"address": "7200 E Evans Ave\nDenver, CO\n",
+		"name": "The Croft"
+	},
+	{
+		"address": "1855 Gaylord St\nDenver, CO\n",
+		"name": "The Edge"
+	},
+	{
+		"address": "1742 Champa St\nDenver, CO\n",
+		"name": "Buerger Brothers Lofts"
+	},
+	{
+		"address": "1726 Champa St\nDenver, CO\n",
+		"name": "Chamber Lofts"
+	},
+	{
+		"address": "636 Pearl St\nDenver, CO\n",
+		"name": "Pearl"
+	},
+	{
+		"address": "1756 Clarkson St\nDenver, CO\n",
+		"name": "The Clarkson"
+	},
+	{
+		"address": "1975 Mile High Stadium Cir\nDenver, CO\n",
+		"name": "Turntable Studios"
+	},
+	{
+		"address": "2125 Buchtel Blvd\nDenver, CO\n",
+		"name": "Trivium"
+	},
+	{
+		"address": "7201 Leetsdale Dr\nDenver, CO\n",
+		"name": "Sage Brook"
+	},
+	{
+		"address": "120 E Grace Pl\nDenver, CO\n",
+		"name": "Windom Peak Apartments"
+	},
+	{
+		"address": "1421 Steele St\nDenver, CO\n",
+		"name": "Steele Manor"
+	},
+	{
+		"address": "619 Logan St\nDenver, CO\n",
+		"name": "The Logan"
+	},
+	{
+		"address": "2300 W 76th Ave\nDenver, CO\n",
+		"name": "Parkside Apartments"
+	},
+	{
+		"address": "1465 North Jasmine Street\nDenver, CO\n",
+		"name": "Jasmine"
+	},
+	{
+		"address": "794 North Cherry Street\nDenver, CO\n",
+		"name": "Cherry St. Townhomes"
+	},
+	{
+		"address": "2701 Federal Blvd\nDenver, CO\n",
+		"name": "2701 Federal"
+	},
+	{
+		"address": "1330 W Mississippi Ave\nDenver, CO\n",
+		"name": "Mariposa Apartments"
+	},
+	{
+		"address": "214 West Ellsworth Avenue\nDenver, CO\n",
+		"name": "Baker 6"
+	},
+	{
+		"address": "1510 E 9th Ave\nDenver, CO\n",
+		"name": "Del Prado"
+	},
+	{
+		"address": "455 29th St\nDenver, CO\n",
+		"name": "Flats on 29th"
+	},
+	{
+		"address": "3885 Tennyson St\nDenver, CO\n",
+		"name": "Tennyson Place"
+	},
+	{
+		"address": "210 Saint Paul St\nDenver, CO\n",
+		"name": "St Paul Collection"
+	},
+	{
+		"address": "1265 Downing St\nDenver, CO\n",
+		"name": "1265 Downing Apartments"
+	},
+	{
+		"address": "3310 S Kenton St\nDenver, CO\n",
+		"name": "Andante at Nine Mile Station"
+	},
+	{
+		"address": "1412 Steele St\nDenver, CO\n",
+		"name": "Liv on Steele"
+	},
+	{
+		"address": "7575 E Arkansas Ave\nDenver, CO\n",
+		"name": "Torrey Pines Apartments"
+	},
+	{
+		"address": "1211 Vine St\nDenver, CO\n",
+		"name": "Nuvo"
+	},
+	{
+		"address": "10025 E Girard Ave\nDenver, CO\n",
+		"name": "The Artisan"
+	},
+	{
+		"address": "3550 W 38th Ave\nDenver, CO\n",
+		"name": "Alexan West Highland"
+	},
+	{
+		"address": "3372 W 38th Ave\nDenver, CO\n",
+		"name": "Highland Place"
+	},
+	{
+		"address": "99 East Arizona Avenue\nDenver, CO\n",
+		"name": "Hanover Platt Park"
+	},
+	{
+		"address": "1050 Sherman St\nDenver, CO\n",
+		"name": "Belmont Buckingham"
+	},
+	{
+		"address": "1515 Vrain Street\nDenver, CO\n",
+		"name": "1515 Flats"
+	},
+	{
+		"address": "2775 S Federal Blvd\nDenver, CO\n",
+		"name": "Amherst Apartments"
+	},
+	{
+		"address": "2975 Huron Street\nDenver, CO\n",
+		"name": "Griffis North Union"
+	},
+	{
+		"address": "8000 E Girard Ave\nDenver, CO\n",
+		"name": "The Paramount"
+	},
+	{
+		"address": "2840 Blake Street\nDenver, CO\n",
+		"name": "Modera River North"
+	},
+	{
+		"address": "415 S Cherokee St\nDenver, CO\n",
+		"name": "Denizen"
+	},
+	{
+		"address": "425 S Galena Way\nDenver, CO\n",
+		"name": "Stratford at Lowry"
+	},
+	{
+		"address": "9600 E Girard Ave\nDenver, CO\n",
+		"name": "Grammercy Apartment Homes"
+	},
+	{
+		"address": "1956 Lawrence St\nDenver, CO\n",
+		"name": "Solera Apartments"
+	},
+	{
+		"address": "1251 S Bellaire St\nDenver, CO\n",
+		"name": "Mint Urban Infinity"
+	},
+	{
+		"address": "3234 Navajo St\nDenver, CO\n",
+		"name": "Lumina Apartments"
+	},
+	{
+		"address": "6715 E Union Ave\nDenver, CO\n",
+		"name": "Cielo Apartments"
+	},
+	{
+		"address": "444 E 19th Ave\nDenver, CO\n",
+		"name": "One City Block"
+	},
+	{
+		"address": "1250 Cherokee St\nDenver, CO\n",
+		"name": "EVIVA On Cherokee"
+	},
+	{
+		"address": "2853 Roslyn St\nDenver, CO\n",
+		"name": "Botanica Eastbridge"
+	},
+	{
+		"address": "1776 Curtis St\nDenver, CO\n",
+		"name": "The Quincy"
+	},
+	{
+		"address": "4380 S Monaco St\nDenver, CO\n",
+		"name": "Bell Denver Tech Center"
+	},
+	{
+		"address": "3205 W Floyd Ave\nDenver, CO\n",
+		"name": "Fielders Creek"
+	},
+	{
+		"address": "3498 E Ellsworth Ave\nDenver, CO\n",
+		"name": "The Seasons of Cherry Creek"
+	},
+	{
+		"address": "828 Broadway\nDenver, CO\n",
+		"name": "Via"
+	},
+	{
+		"address": "150 W 9th Ave\nDenver, CO\n",
+		"name": "The Boulevard Apartments"
+	},
+	{
+		"address": "901 Colorado Blvd\nDenver, CO\n",
+		"name": "Colorado Pointe"
+	},
+	{
+		"address": "1250 S Dayton St\nDenver, CO\n",
+		"name": "Legend Oaks"
+	},
+	{
+		"address": "2800 S Syracuse Way\nDenver, CO\n",
+		"name": "Arapahoe Club"
+	},
+	{
+		"address": "4255 Kittredge St\nDenver, CO\n",
+		"name": "Gateway Park"
+	},
+	{
+		"address": "1150 S Cherry St\nDenver, CO\n",
+		"name": "Four Mile Flats"
+	},
+	{
+		"address": "10700 E Dartmouth Ave\nDenver, CO\n",
+		"name": "Pembrooke on the Green"
+	},
+	{
+		"address": "9999 E Yale Ave\nDenver, CO\n",
+		"name": "Retreat at Water’s Edge"
+	},
+	{
+		"address": "3500 Rockmont Dr\nDenver, CO\n",
+		"name": "WestEnd"
+	},
+	{
+		"address": "4699 Kittredge St\nDenver, CO\n",
+		"name": "Lakecrest at Gateway Park"
+	},
+	{
+		"address": "16505 Green Valley Ranch Blvd\nDenver, CO\n",
+		"name": "Strata"
+	},
+	{
+		"address": "3481 S Fenton St\nDenver, CO\n",
+		"name": "Velo Apartments"
+	},
+	{
+		"address": "8501 E Alameda Ave\nDenver, CO\n",
+		"name": "Lowry Park"
+	},
+	{
+		"address": "4300 E 9th Ave\nDenver, CO\n",
+		"name": "Broadstone on 9th"
+	},
+	{
+		"address": "3700 E Jewell Ave\nDenver, CO\n",
+		"name": "RedPeak Colorado Station"
+	},
+	{
+		"address": "175 E 7th Ave\nDenver, CO\n",
+		"name": "7/S Denver Haus"
+	},
+	{
+		"address": "3190 W 14th Ave\nDenver, CO\n",
+		"name": "The Overlook"
+	},
+	{
+		"address": "1170 Logan St\nDenver, CO\n",
+		"name": "1170 Logan"
+	},
+	{
+		"address": "2375 E Evans Ave\nDenver, CO\n",
+		"name": "East Evans"
+	},
+	{
+		"address": "1075 Corona St\nDenver, CO\n",
+		"name": "The Patrician"
+	},
+	{
+		"address": "90 S Logan St\nDenver, CO\n",
+		"name": "Red Owl"
+	},
+	{
+		"address": "2101 Market St\nDenver, CO\n",
+		"name": "TwentyOne01 on Market Apartments"
+	},
+	{
+		"address": "1260 S Bellaire St\nDenver, CO\n",
+		"name": "Cambridge Place"
+	},
+	{
+		"address": "800 Pennsylvania St\nDenver, CO\n",
+		"name": "Arrive 800 Penn"
+	},
+	{
+		"address": "1531 Stout St\nDenver, CO\n",
+		"name": "Arrive on Stout"
+	},
+	{
+		"address": "8000 E 12th Ave\nDenver, CO\n",
+		"name": "Advenir at Lowry"
+	},
+	{
+		"address": "7470 29th Avenue\nDenver, CO\n",
+		"name": "Crescent Flats"
+	},
+	{
+		"address": "1490 Delgany St\nDenver, CO\n",
+		"name": "Verve"
+	},
+	{
+		"address": "1781 York St\nDenver, CO\n",
+		"name": "The York on City Park"
+	},
+	{
+		"address": "1771 S Quebec Way\nDenver, CO\n",
+		"name": "Deerfield at Indian Creek Apartment Homes"
+	},
+	{
+		"address": "5370 Zuni St\nDenver, CO\n",
+		"name": "Z53"
+	},
+	{
+		"address": "3655 S Verbena St\nDenver, CO\n",
+		"name": "Chestnut Ridge"
+	},
+	{
+		"address": "960 Grant St\nDenver, CO\n",
+		"name": "960 Grant"
+	},
+	{
+		"address": "1131 South Sherman Street\nDenver, CO\n",
+		"name": "RedPeak Platt Park Townhomes"
+	},
+	{
+		"address": "833 Dexter St\nDenver, CO\n",
+		"name": "833 Dexter"
+	},
+	{
+		"address": "1311 Cook St\nDenver, CO\n",
+		"name": "1311 Cook"
+	},
+	{
+		"address": "1375 N. High St\nDenver, CO\n",
+		"name": "1375 High"
+	},
+	{
+		"address": "1190 Birch St\nDenver, CO\n",
+		"name": "1190 Birch Apartments"
+	},
+	{
+		"address": "1044 Downing St\nDenver, CO\n",
+		"name": "1044 Downing"
+	},
+	{
+		"address": "880 Dexter St\nDenver, CO\n",
+		"name": "880 & 890 Dexter"
+	},
+	{
+		"address": "1451 24th St\nDenver, CO\n",
+		"name": "Ballpark Lofts"
+	},
+	{
+		"address": "2749 Walnut St\nDenver, CO\n",
+		"name": "Hartley Flats"
+	},
+	{
+		"address": "2120 Blake St\nDenver, CO\n",
+		"name": "The Battery on Blake Street"
+	},
+	{
+		"address": "2555 17TH ST\nDenver, CO\n",
+		"name": "Studio LoHi"
+	},
+	{
+		"address": "4875 DTC Blvd.\nDenver, CO\n",
+		"name": "Carriage Place"
+	},
+	{
+		"address": "11100 E Dartmouth Ave\nDenver, CO\n",
+		"name": "One Dartmouth Place"
+	},
+	{
+		"address": "2131 Lawrence St\nDenver, CO\n",
+		"name": "Point 21"
+	},
+	{
+		"address": "101 Grant St\nDenver, CO\n",
+		"name": "Vita Flats"
+	},
+	{
+		"address": "1801 Chestnut Pl\nDenver, CO\n",
+		"name": "City House Apartments"
+	},
+	{
+		"address": "870 Cherry St\nDenver, CO\n",
+		"name": "870 Cherry"
+	},
+	{
+		"address": "1900 Little Raven St\nDenver, CO\n",
+		"name": "AMLI Riverfront Park"
+	},
+	{
+		"address": "70 Clarkson St\nDenver, CO\n",
+		"name": "70 Clarkson"
+	},
+	{
+		"address": "801 S Cherry St\nDenver, CO\n",
+		"name": "Solana Cherry Creek"
+	},
+	{
+		"address": "1105 S Cherry St\nDenver, CO\n",
+		"name": "Vantage Point"
+	},
+	{
+		"address": "1560 Boulder St\nDenver, CO\n",
+		"name": "Line 28 at LoHi"
+	},
+	{
+		"address": "5031 S Ulster St\nDenver, CO\n",
+		"name": "Outlook DTC"
+	},
+	{
+		"address": "1736 Boulder St\nDenver, CO\n",
+		"name": "B Street LoHi"
+	},
+	{
+		"address": "275 S Cherokee St\nDenver, CO\n",
+		"name": "IMT Alameda Station"
+	},
+	{
+		"address": "2900 E 16th Ave\nDenver, CO\n",
+		"name": "Venue on 16th"
+	},
+	{
+		"address": "3063 North Brighton Boulevard\nDenver, CO\n",
+		"name": "Edison At Rino"
+	},
+	{
+		"address": "777 Emerson St\nDenver, CO\n",
+		"name": "Emerson Lofts"
+	},
+	{
+		"address": "1250 S Clermont St\nDenver, CO\n",
+		"name": "Infinity Flats"
+	},
+	{
+		"address": "3251 Lowell Blvd\nDenver, CO\n",
+		"name": "Highlands 32"
+	},
+	{
+		"address": "1355 Pearl St\nDenver, CO\n",
+		"name": "Shambhala"
+	},
+	{
+		"address": "60 Corona St\nDenver, CO\n",
+		"name": "60 Corona"
+	},
+	{
+		"address": "2270 S University Blvd\nDenver, CO\n",
+		"name": "Muse Apartments"
+	},
+	{
+		"address": "1441 Little Raven St\nDenver, CO\n",
+		"name": "The Confluence"
+	},
+	{
+		"address": "1000 North Colorado Boulevard\nDenver, CO\n",
+		"name": "The Theo"
+	},
+	{
+		"address": "3446 S Akron St\nDenver, CO\n",
+		"name": "Forest Cove Apartments"
+	},
+	{
+		"address": "1436 S Irving St\nDenver, CO\n",
+		"name": "Parkwood Plaza"
+	},
+	{
+		"address": "18493 E Elmendorf Rd\nDenver, CO\n",
+		"name": "Watermark at First Creek"
+	},
+	{
+		"address": "12175 Albrook Dr\nDenver, CO\n",
+		"name": "Villages at Gateway"
+	},
+	{
+		"address": "2190 E 11th Ave\nDenver, CO\n",
+		"name": "Amaranth Apartments"
+	},
+	{
+		"address": "1011 Colorado Blvd\nDenver, CO\n",
+		"name": "Metropolis"
+	},
+	{
+		"address": "7575 E 29th Pl\nDenver, CO\n",
+		"name": "Mint Town Center"
+	},
+	{
+		"address": "3405 W 32nd Ave\nDenver, CO\n",
+		"name": "Julian 32"
+	},
+	{
+		"address": "5121 East Yale Avenue\nDenver, CO\n",
+		"name": "Yale 25"
+	},
+	{
+		"address": "818 S Dexter St\nDenver, CO\n",
+		"name": "180 Flats"
+	},
+	{
+		"address": "2930 E 2nd Ave\nDenver, CO\n",
+		"name": "Residences at Fillmore Plaza"
+	},
+	{
+		"address": "820 Sherman St\nDenver, CO\n",
+		"name": "MOTO Apartments"
+	},
+	{
+		"address": "2525 18th St\nDenver, CO\n",
+		"name": "Centric LoHi"
+	},
+	{
+		"address": "1284 Downing St\nDenver, CO\n",
+		"name": "Alta Vera"
+	},
+	{
+		"address": "1430 Humboldt St\nDenver, CO\n",
+		"name": "1430 Humboldt"
+	},
+	{
+		"address": "1282 Detroit St\nDenver, CO\n",
+		"name": "Avon Apartments"
+	},
+	{
+		"address": "136 S Pennsylvania St\nDenver, CO\n",
+		"name": "136 S Penn"
+	},
+	{
+		"address": "3400 E 17th Ave\nDenver, CO\n",
+		"name": "The Kent Apartments"
+	},
+	{
+		"address": "4560 S. Balsam Way\nDenver, CO\n",
+		"name": "M2"
+	},
+	{
+		"address": "8965 E Florida Ave\nDenver, CO\n",
+		"name": "Alton Green Apartments"
+	},
+	{
+		"address": "8405 E Hampden Ave\nDenver, CO\n",
+		"name": "Hampden Heights"
+	},
+	{
+		"address": "1707 Chestnut Pl\nDenver, CO\n",
+		"name": "The Grand"
+	},
+	{
+		"address": "2700 N Decatur St\nDenver, CO\n",
+		"name": "Decatur Point"
+	},
+	{
+		"address": "100 Steele St\nDenver, CO\n",
+		"name": "Coda"
+	},
+	{
+		"address": "675 E Louisiana Ave\nDenver, CO\n",
+		"name": "Wash Park Station"
+	},
+	{
+		"address": "2085 S Josephine St\nDenver, CO\n",
+		"name": "South Josephine Apartments"
+	},
+	{
+		"address": "3860 Tennyson St\nDenver, CO\n",
+		"name": "Colewood"
+	},
+	{
+		"address": "2298 W 28th Ave\nDenver, CO\n",
+		"name": "Infinity Lohi"
+	},
+	{
+		"address": "4750 Cherry Creek South Dr\nDenver, CO\n",
+		"name": "IMT Cherry Creek"
+	}
+]
