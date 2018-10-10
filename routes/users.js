@@ -130,6 +130,25 @@ router.post('/:user_id/interests/:interest_id', (req, res) => {
 });
 
 // delete user interest
+router.delete('/:user_id/interests/:interest_id', (req, res) => {
+  const { user_id, interest_id } = req.params;
+
+  database('user_interests')
+    .where('user_id', user_id)
+    .where('interest_id', interest_id)
+    .then((userInterest) => {
+      if (!userInterest.length) {
+        return res.status(404).send('Could not find a matching user interest.');
+      }
+      return database('user_interests')
+        .where('id', userInterest[0].id)
+        .del()
+        .then(() => res.status(200).send(`Interest ${interest_id} was successfully deleted for user ${user_id}.`))
+        .catch(err => res.status(500).json({ err }));
+    })
+    .catch(err => res.status(500).json({ err }));
+});
+
 // get all user interests
 
 module.exports = router;
