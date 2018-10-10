@@ -110,4 +110,26 @@ router.delete('/:user_id', (req, res) => {
     });
 });
 
+// add user interest
+router.post('/:user_id/interests/:interest_id', (req, res) => {
+  const { user_id, interest_id } = req.params;
+
+  database('user_interests')
+    .where('user_id', user_id)
+    .where('interest_id', interest_id)
+    .then((userInterest) => {
+      if (userInterest.length) {
+        return res.status(409).send('Interest is already saved for this user.');
+      }
+      return database('user_interests')
+        .insert({ user_id, interest_id }, 'id')
+        .then(newUserInterest => res.status(201).json({ id: newUserInterest[0] }))
+        .catch(err => res.status(500).json({ err }));
+    })
+    .catch(err => res.status(500).json({ err }));
+});
+
+// delete user interest
+// get all user interests
+
 module.exports = router;

@@ -42,4 +42,6 @@ router.post('/', (req, res) => {
     .catch(err => res.status(500).json({ err }));
 });
 
+// get all users with a certain interest
+
 module.exports = router;
