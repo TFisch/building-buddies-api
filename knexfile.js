@@ -1,4 +1,3 @@
-// Update with your config settings.
 
 module.exports = {
   development: {
@@ -9,6 +8,18 @@ module.exports = {
     },
     seeds: {
       directory: __dirname + '/db/seeds/development'
+    },
+    useNullAsDefault: true,
+  },
+
+  test: {
+    client: 'pg',
+    connection: 'postgres://localhost/buildingbuddies_test',
+    migrations: {
+      directory: './db/migrations',
+    },
+    seeds: {
+      directory: './db/seeds/test',
     },
     useNullAsDefault: true,
   },
