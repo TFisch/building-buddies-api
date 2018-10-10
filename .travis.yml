@@ -1,9 +1,15 @@
 language: node_js
 node_js:
-  - "10"
+- '10'
 services:
-  - postgresql
+- postgresql
 before_script:
-  - psql -c 'create database buildingbuddies_test;' -U postgres
+- psql -c 'create database buildingbuddies_test;' -U postgres
 notifications:
   email: false
+deploy:
+  provider: heroku
+  api_key:
+    secure: CtOsG0O8/cbASrDwbwEU5Oxqx5Mh/0M0ZxX3bHsM05u61VXz1ELTM4Ga4cU2AHdPjSulI/X9w1G8E1r/nelOr24DIgUkgh5rOMRm6TxtSvZ022quloCUf5QzZjxima+v/vKXPWSIhZvrTpxu+xJU4ODQdnVDJ5ZZb865iDzbGlqZ86xPm8SsQkcZr70MOBxO6yoXh+NO5EhWZdzdWG3P2YuQf5SBKlNV99FC32J8V8TvOOh7qa0n0XLFiKpIF+9YIWAoaZ2x1mDCQe5hue/nv9CwI/vbwb1Jx1i30iXN1W2WdYINkufFuuCVUnS75ShWodpxcl3pAW8h9s4jyZeI0QQwst82GqUQwQXMkNaLyZ5r+OrR5vEKxrpct5kP2BzkocWPhMebCzmN7Krj0yXZ3Z36x+90LZyhnv/f1ZfuC/wezMJ0M9j1l2QX6izENBckNLHQwYgbS4JnkTeR0+faGbHkszP5UbzFLAOMw4oglellZbFswwYb00rraKLD2lUnCT5Pgpibo1Aj+lqMMUFAg/6HSdHn30qRV+cArlZRp6zUfOtSX6PCuMHm65zFUtzGcR/etZ3uTivwteCI9kNOA3iwQO88PCihKpoi3jD/gVhqisHmdVEAbFVG6ImCOUVG86jXadr46b/zBmYFlmXQ96d0fjFpeiVzR7RH2FmTXDo=
+  app: building-buddies-api
+  skip_cleanup: true
