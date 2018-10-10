@@ -1,4 +1,4 @@
-const apartmentData = require('../../../apartmentData.json');
+const apartmentData = require('../../../data/apartmentData.json');
 
 exports.seed = function (knex) {
   // Deletes ALL existing entries

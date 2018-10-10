@@ -2,49 +2,49 @@
   {
     "name": "Gray Smith",
     "email": "gray.smith@gmail.com",
-    "building_id": "1",
+    "building_id": 1,
     "password": "asdfasdf"
   },
   {
     "name": "Laura Whitaker",
     "email": "laura.whitaker@gmail.com",
-    "building_id": "2",
+    "building_id": 2,
     "password": "asdfasdf"
   },
   {
     "name": "Tom King",
     "email": "tom.king@gmail.com",
-    "building_id": "3",
+    "building_id": 3,
     "password": "asdfasdf"
   },
   {
     "name": "Boolean Brandon",
     "email": "boolean.brandon@gmail.com",
-    "building_id": "1",
+    "building_id": 1,
     "password": "asdfasdf"
   },
   {
     "name": "Doctor K",
     "email": "doctor.k@gmail.com",
-    "building_id": "2",
+    "building_id": 2,
     "password": "asdfasdf"
   },
   {
     "name": "Cody Taft",
     "email": "cody.taft@gmail.com",
-    "building_id": "3",
+    "building_id": 3,
     "password": "asdfasdf"
   },
   {
     "name": "Tim Fischer",
     "email": "tim.fishcher@gmail.com",
-    "building_id": "1",
+    "building_id": 1,
     "password": "asdfasdf"
   },
   {
     "name": "Jesse McFadden",
     "email": "jesse.mcfadden@gmail.com",
-    "building_id": "2",
+    "building_id": 2,
     "password": "asdfasdf"
   }
 ]

@@ -10,28 +10,28 @@ router.get('/', (req, res) => {
   database('users')
     .select()
     .then((users) => {
-      const usernames = users.map(user => user.name);
-      res.status(200).json(usernames);
+      // const usernames = users.map(user => user.name);
+      res.status(200).json(users);
     })
     .catch(err => res.status(500).json({ err }));
 });
 
 // get user by id
-router.get('/:id', (req, res) => {
+router.get('/:user_id', (req, res) => {
   database('users')
-    .where('id', req.params.id)
+    .where('id', req.params.user_id)
     .select()
     .then((user) => {
       if (!user) {
-        return res.status(404).json({ error: `No user with the id of ${req.params.id} was found.` });
+        return res.status(404).json({ error: `No user with the id of ${req.params.user_id} was found.` });
       }
       return res.status(200).json(user);
     })
     .catch(err => res.send(500).json({ err }));
 });
 
-// create a new users
-router.post('/register', (req, res) => {
+// create a new user
+router.post('/', (req, res) => {
   const {
     name, email, building_id, password,
   } = req.body;

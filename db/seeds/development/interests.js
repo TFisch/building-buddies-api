@@ -1,4 +1,4 @@
-const interestData = require('../../../interestData.json');
+const interestData = require('../../../data/interestData.json');
 
 exports.seed = function (knex) {
   return knex('interests').del()
