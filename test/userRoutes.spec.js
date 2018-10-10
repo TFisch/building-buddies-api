@@ -4,7 +4,22 @@ const chaiHttp = require('chai-http');
 const server = require('../server');
 chai.use(chaiHttp);
 
+const environment = process.env.NODE_ENV || 'test';
+const configuration = require('../knexfile')[environment];
+const database = require('knex')(configuration);
+
 describe('USER API ROUTES', () => {
+  beforeEach((done) => {
+    database.migrate.rollback()
+      .then(() => {
+        database.migrate.latest()
+          .then(() => database.seed.run()
+            .then(() => {
+              done();
+            }));
+      });
+  });
+
   it('GET / should return all users', (done) => {
     chai
       .request(server)
