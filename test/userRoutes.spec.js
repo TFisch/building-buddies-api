@@ -8,6 +8,8 @@ const environment = process.env.NODE_ENV || 'test';
 const configuration = require('../knexfile')[environment];
 const database = require('knex')(configuration);
 
+// test
+
 describe('USER API ROUTES', () => {
   beforeEach((done) => {
     database.migrate.rollback()
