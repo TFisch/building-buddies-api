@@ -72,8 +72,16 @@ router.delete('/:building_id', (req, res) => {
 
   database('buildings')
     .where('id', building_id)
-    .del()
-    .then(() => res.status(204))
+    .select()
+    .then((building) => {
+      if (building.length) {
+        database('buildings').where('id', building_id).del()
+          .then(() => res.status(204).send(`Building ${building_id} was successfully deleted.`))
+          .catch(err => res.status(500).json({ err }));
+      } else {
+        return res.status(404).json({ error: `Could not find building with id ${building_id}`});
+      }
+    })
     .catch(err => res.status(500).json({ err }));
 });
 
