@@ -5,7 +5,7 @@ const server = require('../server');
 chai.use(chaiHttp);
 
 describe('USER API ROUTES', () => {
-  it.only('GET / should return all users', (done) => {
+  it('GET / should return all users', (done) => {
     chai
       .request(server)
       .get('/api/v1/users/')
@@ -26,19 +26,19 @@ describe('USER API ROUTES', () => {
       });
   });
 
-  it('GET /:id should return a user', (done) => {
+  it.skip('GET /:id should return a user', (done) => {
 
   });
 
-  it('POST / should create a new user', (done) => {
+  it.skip('POST / should create a new user', (done) => {
 
   });
 
-  it('PUT /:user_id should update a user', (done) => {
+  it.skip('PUT /:user_id should update a user', (done) => {
 
   });
 
-  it('DELETE /:user_id should delete a user', (done) => {
+  it.skip('DELETE /:user_id should delete a user', (done) => {
 
   });
 });
