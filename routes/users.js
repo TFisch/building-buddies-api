@@ -68,4 +68,46 @@ router.post('/register', (req, res) => {
     .catch(err => res.status(500).json({ err }));
 });
 
+// update user
+router.put('/:user_id', (req, res) => {
+  const { user_id } = req.params;
+  const {
+    name, email, password, building_id,
+  } = req.body;
+  const params = {
+    name, email, password, building_id,
+  };
+  const requiredParams = Object.keys(params).includes(false);
+
+  if (!requiredParams) {
+    return res.status(422).send('Looks like you are missing a required parameter');
+  }
+
+  database('users')
+    .where('id', user_id)
+    .update(params)
+    .then((user) => {
+      if (!user) {
+        return res.status(404).json({ error: `Could not find user with id: ${user_id}.` });
+      }
+      return res.status(200).json({ id: user_id });
+    });
+});
+
+// delete user
+router.delete('/:user_id', (req, res) => {
+  const { user_id } = req.params;
+
+  database('users')
+    .where('id', user_id)
+    .select()
+    .del()
+    .then((user) => {
+      if (!user) {
+        return res.status(404).send({ error: `Could not find user with id ${user_id}` });
+      }
+      return res.status(200).send(`User ${user_id} was successfully deleted`);
+    });
+});
+
 module.exports = router;
