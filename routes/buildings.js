@@ -41,6 +41,31 @@ router.post('/', (req, res) => {
     .catch(err => res.status(500).json({ err }));
 });
 
+// edit existing building
+router.put('/:building_id', (req, res) => {
+  const { building_id } = req.params;
+  const buildingData = req.body;
+  const keyArray = Object.keys(buildingData).map(key => ((key === 'name') || (key === 'address')));
+  const acceptedParams = !keyArray.includes(false);
+
+  if (acceptedParams) {
+    database('buildings')
+      .where('id', building_id)
+      .update(buildingData)
+      .then((buildingId) => {
+        if (buildingId === 0) {
+          return res.status(404).json({
+            error: `Could not find building with id ${building_id}.`,
+          });
+        }
+        return res.status(200).json({ id: buildingId });
+      })
+      .catch(err => res.status(500).json({ err }));
+  } else {
+    return res.status(422).send('Parameters can only be a name and/or address.');
+  }
+});
+
 // delete building
 router.delete('/:building_id', (req, res) => {
   const { building_id } = req.params;
