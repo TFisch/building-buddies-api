@@ -2,7 +2,7 @@ const apartmentData = require('../../../apartmentData.json');
 
 exports.seed = function (knex) {
   // Deletes ALL existing entries
-  return knex('userInterests').del()
+  return knex('user_interests').del()
     .then(() => knex('users').del())
     .then(() => knex('buildings').del())
     .then(() => (
