@@ -150,5 +150,25 @@ router.delete('/:user_id/interests/:interest_id', (req, res) => {
 });
 
 // get all user interests
+router.get('/:user_id/interests', (req, res) => {
+  const { user_id } = req.params;
+
+  database('user_interests')
+    .where('user_id', user_id)
+    .then((userInterests) => {
+      if (!userInterests.length) {
+        return res.status(404).send(`Could not find interests for user ${user_id}`);
+      }
+
+      const interests = userInterests.map(interest => database('interests')
+        .where('id', interest.interest_id)
+        .then(foundInterest => foundInterest[0].name)
+        .catch(err => res.status(500).json({ err })));
+
+      return Promise.all(interests);
+    })
+    .then(interests => res.status(200).json(interests))
+    .catch(err => res.status(500).json({ err }));
+});
 
 module.exports = router;
