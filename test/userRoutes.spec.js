@@ -23,7 +23,7 @@ describe('USER API ROUTES', () => {
   it('GET / should return all users', (done) => {
     chai
       .request(server)
-      .get('/api/v1/users/')
+      .get('/api/v1/users')
       .end((err, res) => {
         res.should.have.status(200);
         res.should.be.json;
@@ -78,7 +78,7 @@ describe('USER API ROUTES', () => {
   it('POST / should create a new user', (done) => {
     chai
       .request(server)
-      .post('/api/v1/users/')
+      .post('/api/v1/users')
       .send({
         name: 'Test',
         email: 'test@test.com',
@@ -98,7 +98,7 @@ describe('USER API ROUTES', () => {
   it('POST / should send an error if params don\'t match', (done) => {
     chai
       .request(server)
-      .post('/api/v1/users/')
+      .post('/api/v1/users')
       .send({
         name: 'Test',
         password: 'asdfasdf',
@@ -208,8 +208,6 @@ describe('USER API ROUTES', () => {
       });
   });
 
-  // Need to seed user interests
-  // Add specific error if user or interest id does not exist
   it('POST /:user_id/interests/:interest_id should send an error if user already has that interest', (done) => {
     chai
       .request(server)
