@@ -114,6 +114,60 @@ describe('USER API ROUTES', () => {
       });
   });
 
+  it('PUT /:user_id should update a user', (done) => {
+    chai
+      .request(server)
+      .put('/api/v1/users/1')
+      .send({
+        name: 'Gray Smithers'
+      })
+      .end((err, res) => {
+        res.should.have.status(200);
+        res.should.be.json;
+        res.body.should.be.a('object');
+        res.body.should.have.property('id');
+        res.body.id.should.be.a('number');
+        done();
+      });
+  });
+
+  it('PUT /:user_id should send an error if it doesn\'t have an accepted param', (done) => {
+    chai
+      .request(server)
+      .put('/api/v1/users/1')
+      .send({
+        name: 'Gray Smith',
+        incorrectKey: 'asdfasdf',
+        building_id: 1,
+      })
+      .end((err, res) => {
+        res.should.have.status(422);
+        res.should.be.json;
+        res.body.should.be.a('object');
+        res.body.error.should.equal('Looks like you are using unaccepted parameters.');
+        done();
+      });
+  });
+
+  it('PUT /:user_id should send an error if user doesn\'t exist', (done) => {
+    chai
+      .request(server)
+      .put('/api/v1/users/500')
+      .send({
+        name: 'Gray Smith',
+        password: 'asdfasdf',
+        building_id: 1,
+      })
+      .end((err, res) => {
+        res.should.have.status(404);
+        res.should.be.json;
+        res.body.should.be.a('object');
+        res.body.should.have.property('error');
+        res.body.error.should.equal('Could not find user with id: 500.');
+        done();
+      });
+  });
+
   it('DELETE /:user_id should delete a user', (done) => {
     chai
       .request(server)
