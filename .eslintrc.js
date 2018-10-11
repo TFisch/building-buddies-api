@@ -5,6 +5,8 @@ module.exports = {
     'import/order': 'off',
     'camelcase': 'off',
     'import/newline-after-import': 'off',
-    'no-plusplus': 'off'
+    'no-plusplus': 'off',
+    'no-undef': 'off',
+    'no-unused-expressions': 'off'
   }
 };

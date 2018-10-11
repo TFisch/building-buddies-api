@@ -62,7 +62,7 @@ router.put('/:building_id', (req, res) => {
       })
       .catch(err => res.status(500).json({ err }));
   } else {
-    return res.status(422).send('Parameters can only be a name and/or address.');
+    return res.status(422).json({ error: 'Parameters can only be a name and/or address.' });
   }
 });
 
@@ -76,7 +76,7 @@ router.delete('/:building_id', (req, res) => {
     .then((building) => {
       if (building.length) {
         database('buildings').where('id', building_id).del()
-          .then(() => res.status(200).send(`Building ${building_id} was successfully deleted.`))
+          .then(() => res.status(200).json({ message: `Building ${building_id} was successfully deleted.` }))
           .catch(err => res.status(500).json({ err }));
       } else {
         return res.status(404).json({ error: `Could not find building with id ${building_id}` });
