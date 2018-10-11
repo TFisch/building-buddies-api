@@ -210,10 +210,10 @@ describe('USER API ROUTES', () => {
 
   // Need to seed user interests
   // Add specific error if user or interest id does not exist
-  it.skip('POST /:user_id/interests/:interest_id should send an error if user already has that interest', (done) => {
+  it('POST /:user_id/interests/:interest_id should send an error if user already has that interest', (done) => {
     chai
       .request(server)
-      .post('/api/v1/users/1/interests/4')
+      .post('/api/v1/users/1/interests/3')
       .end((err, res) => {
         res.should.have.status(409);
         res.should.be.json;
@@ -224,16 +224,14 @@ describe('USER API ROUTES', () => {
       });
   });
 
-  it.skip('DELETE /:user_id/interests/:interest_id should add a user interest', (done) => {
+  it('DELETE /:user_id/interests/:interest_id should delete a user interest', (done) => {
     chai
       .request(server)
-      .delete('/api/v1/users/1/interests/4')
+      .delete('/api/v1/users/1/interests/3')
       .end((err, res) => {
-        res.should.have.status(201);
-        res.should.be.json;
-        res.body.should.be.a('object');
-        res.body.should.have.property('id');
-        res.body.id.should.be.a('number');
+        res.should.have.status(200);
+        res.should.be.html;
+        res.text.should.equal('Interest 3 was successfully deleted for user 1.');
         done();
       });
   });
@@ -252,7 +250,7 @@ describe('USER API ROUTES', () => {
       });
   });
 
-  it.skip('GET /:user_id/interests should get all user interests', (done) => {
+  it('GET /:user_id/interests should get all user interests', (done) => {
     chai
       .request(server)
       .get('/api/v1/users/1/interests')
@@ -260,8 +258,8 @@ describe('USER API ROUTES', () => {
         res.should.have.status(200);
         res.should.be.json;
         res.body.should.be.a('array');
-        res.body.length.should.equal(0);
-        res.body[0].should.equal('');
+        res.body.length.should.equal(3);
+        res.body[0].should.equal('golf');
         done();
       });
   });
@@ -269,13 +267,13 @@ describe('USER API ROUTES', () => {
   it('GET /:user_id/interests should send an error if user has no interests', (done) => {
     chai
       .request(server)
-      .get('/api/v1/users/1/interests')
+      .get('/api/v1/users/5/interests')
       .end((err, res) => {
         res.should.have.status(404);
         res.should.be.json;
         res.body.should.be.a('object');
         res.body.should.have.property('error');
-        res.body.error.should.equal('Could not find interests for user 1');
+        res.body.error.should.equal('Could not find interests for user 5');
         done();
       });
   });

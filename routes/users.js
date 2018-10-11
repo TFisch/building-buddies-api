@@ -9,10 +9,7 @@ const database = require('knex')(configuration);
 router.get('/', (req, res) => {
   database('users')
     .select()
-    .then((users) => {
-      // const usernames = users.map(user => user.name);
-      res.status(200).json(users);
-    })
+    .then(users => res.status(200).json(users))
     .catch(err => res.status(500).json({ err }));
 });
 
@@ -27,7 +24,7 @@ router.get('/:user_id', (req, res) => {
       }
       return res.status(404).json({ error: `No user with the id of ${req.params.user_id} was found.` });
     })
-    .catch(err => res.send(500).json({ err }));
+    .catch(err => res.status(500).json({ err }));
 });
 
 // create a new user
@@ -46,7 +43,7 @@ router.post('/', (req, res) => {
 
   requiredParams.map((param) => {
     if (!newUser[param]) {
-      return res.status(422).send({
+      return res.status(422).json({
         error: `Expected format: { name: <String>, email: <String>, password: <String>, building_id: <Integer> }. You're missing a "${param}" property.`,
       });
     }
@@ -58,9 +55,9 @@ router.post('/', (req, res) => {
       if (response.length > 0) {
         return res
           .status(409)
-          .send({ error: 'An account with that email already exists.' });
+          .json({ error: 'An account with that email already exists.' });
       }
-      return database('users')
+      database('users')
         .insert(newUser, 'id')
         .then(user => res.status(201).json({ id: user[0] }))
         .catch(err => res.status(500).json({ err }));
