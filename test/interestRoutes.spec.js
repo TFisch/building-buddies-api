@@ -38,6 +38,36 @@ describe('INTEREST API ROUTES', () => {
       });
   });
 
+  // it should get all the users with a specific interest
+  it('GET /api/v1/interests?interest=:interest_name should get all the users with a certain interest', (done) => {
+    chai
+      .request(server)
+      .get('/api/v1/interests?interest=golf')
+      .end((err, res) => {
+        res.should.have.status(200);
+        res.should.be.json;
+        res.body.should.be.a('array');
+        res.body[0].should.be.a('string');
+        res.body[0].should.equal('Gray Smith');
+        done();
+      });
+  });
+
+  // it should return a 404 if no interest with that name is found
+  it('GET /api/v1/interests?interes=:interest_name should return a 404 if no interest with that name is found', (done) => {
+    chai
+      .request(server)
+      .get('/api/v1/interests?interest=cheesemongering')
+      .end((err, res) => {
+        res.should.have.status(404);
+        res.should.be.json;
+        res.body.should.deep.equal({
+          error: 'Interest cheesemongering is not valid.',
+        });
+        done();
+      });
+  });
+
   // it should create a new interest
   it('POST /api/v1/interests should create a new interest', (done) => {
     chai
