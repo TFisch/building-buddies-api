@@ -104,7 +104,7 @@ router.delete('/:user_id', (req, res) => {
     .del()
     .then((user) => {
       if (!user) {
-        return res.status(404).send({ error: `Could not find user with id ${user_id}` });
+        return res.status(404).json({ error: `Could not find user with id ${user_id}.` });
       }
       return res.status(200).send(`User ${user_id} was successfully deleted`);
     });
