@@ -1,4 +1,5 @@
 const express = require('express');
+const { validateUserParams } = require('../middlewares/validations');
 
 const router = express.Router();
 const environment = process.env.NODE_ENV || 'development';
@@ -51,26 +52,17 @@ router.get('/:user_id', (req, res) => {
 });
 
 // create a new user
-router.post('/', (req, res) => {
+router.post('/', validateUserParams, (req, res) => {
   const {
     name, email, building_id, password,
   } = req.body;
 
-  const requiredParams = ['name', 'email', 'building_id'];
   const newUser = {
     name,
     email,
     password,
     building_id,
   };
-
-  requiredParams.map((param) => {
-    if (!newUser[param]) {
-      return res.status(422).json({
-        error: `Expected format: { name: <String>, email: <String>, password: <String>, building_id: <Integer> }. You're missing a "${param}" property.`,
-      });
-    }
-  });
 
   database('users')
     .where('email', newUser.email)
