@@ -71,27 +71,29 @@ router.post('/', (req, res) => {
 // update user
 router.put('/:user_id', (req, res) => {
   const { user_id } = req.params;
-  const {
-    name, email, password, building_id,
-  } = req.body;
-  const params = {
-    name, email, password, building_id,
-  };
-  const requiredParams = Object.keys(params).includes(false);
+  const updatedUser = req.body;
+  const acceptedParams = [
+    'name',
+    'email',
+    'password',
+    'building_id',
+  ];
+  const keyArray = Object.keys(updatedUser).map(key => (
+    acceptedParams.includes(key)));
 
-  if (!requiredParams) {
-    return res.status(422).send('Looks like you are missing a required parameter');
+  if (!keyArray.includes(false)) {
+    database('users')
+      .where('id', user_id)
+      .update(updatedUser)
+      .then((user) => {
+        if (!user) {
+          return res.status(404).json({ error: `Could not find user with id: ${user_id}.` });
+        }
+        return res.status(200).json({ id: user });
+      });
+  } else {
+    return res.status(422).json({ error: 'Looks like you are using unaccepted parameters.' });
   }
-
-  database('users')
-    .where('id', user_id)
-    .update(params)
-    .then((user) => {
-      if (!user) {
-        return res.status(404).json({ error: `Could not find user with id: ${user_id}.` });
-      }
-      return res.status(200).json({ id: user_id });
-    });
 });
 
 // delete user
