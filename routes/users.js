@@ -1,4 +1,5 @@
 const express = require('express');
+const { validateUserParams } = require('../middlewares/validations');
 
 const router = express.Router();
 const environment = process.env.NODE_ENV || 'development';
@@ -8,8 +9,8 @@ const database = require('knex')(configuration);
 // get all users
 router.get('/', (req, res) => {
   // find users with a certain interest
-  if (req.param('interest')) {
-    const interest_name = req.param('interest');
+  if (req.query.interest) {
+    const interest_name = req.query.interest;
     return database('interests')
       .where('name', interest_name)
       .then((interest) => {
@@ -51,26 +52,17 @@ router.get('/:user_id', (req, res) => {
 });
 
 // create a new user
-router.post('/', (req, res) => {
+router.post('/', validateUserParams, (req, res) => {
   const {
     name, email, building_id, password,
   } = req.body;
 
-  const requiredParams = ['name', 'email', 'building_id'];
   const newUser = {
     name,
     email,
     password,
     building_id,
   };
-
-  requiredParams.map((param) => {
-    if (!newUser[param]) {
-      return res.status(422).json({
-        error: `Expected format: { name: <String>, email: <String>, password: <String>, building_id: <Integer> }. You're missing a "${param}" property.`,
-      });
-    }
-  });
 
   database('users')
     .where('email', newUser.email)
@@ -89,31 +81,19 @@ router.post('/', (req, res) => {
 });
 
 // update user
-router.put('/:user_id', (req, res) => {
+router.put('/:user_id', validateUserParams, (req, res) => {
   const { user_id } = req.params;
   const updatedUser = req.body;
-  const acceptedParams = [
-    'name',
-    'email',
-    'password',
-    'building_id',
-  ];
-  const keyArray = Object.keys(updatedUser).map(key => (
-    acceptedParams.includes(key)));
 
-  if (!keyArray.includes(false)) {
-    database('users')
-      .where('id', user_id)
-      .update(updatedUser)
-      .then((user) => {
-        if (!user) {
-          return res.status(404).json({ error: `Could not find user with id: ${user_id}.` });
-        }
-        return res.status(200).json({ id: user });
-      });
-  } else {
-    return res.status(422).json({ error: 'Looks like you are using unaccepted parameters.' });
-  }
+  database('users')
+    .where('id', user_id)
+    .update(updatedUser)
+    .then((user) => {
+      if (!user) {
+        return res.status(404).json({ error: `Could not find user with id: ${user_id}.` });
+      }
+      return res.status(200).json({ id: user });
+    });
 });
 
 // delete user
@@ -187,9 +167,10 @@ router.get('/:user_id/interests', (req, res) => {
         .then(foundInterest => foundInterest[0].name)
         .catch(err => res.status(500).json({ err })));
 
-      return Promise.all(interests);
+      Promise.all(interests)
+        .then(allInterests => res.status(200).json(allInterests))
+        .catch(err => res.status(500).json({ err }));
     })
-    .then(interests => res.status(200).json(interests))
     .catch(err => res.status(500).json({ err }));
 });
 

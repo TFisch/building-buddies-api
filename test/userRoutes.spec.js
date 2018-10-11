@@ -150,6 +150,9 @@ describe('USER API ROUTES', () => {
       .put('/api/v1/users/1')
       .send({
         name: 'Gray Smithers',
+        email: 'gray.smith@gmail.com',
+        password: 'asdfasdf',
+        building_id: 1,
       })
       .end((err, res) => {
         res.should.have.status(200);
@@ -161,20 +164,20 @@ describe('USER API ROUTES', () => {
       });
   });
 
-  it('PUT /:user_id should send an error if it doesn\'t have an accepted param', (done) => {
+  it('PUT /:user_id should send an error if it doesn\'t have accepted params', (done) => {
     chai
       .request(server)
       .put('/api/v1/users/1')
       .send({
-        name: 'Gray Smith',
-        incorrectKey: 'asdfasdf',
+        email: 'gray.smith@gmail.com',
+        password: 'asdfasdf',
         building_id: 1,
       })
       .end((err, res) => {
         res.should.have.status(422);
         res.should.be.json;
         res.body.should.be.a('object');
-        res.body.error.should.equal('Looks like you are using unaccepted parameters.');
+        res.body.error.should.equal('Expected format: { name: <String>, email: <String>, password: <String>, building_id: <Integer> }. You\'re missing a "name" property.');
         done();
       });
   });
@@ -184,7 +187,8 @@ describe('USER API ROUTES', () => {
       .request(server)
       .put('/api/v1/users/500')
       .send({
-        name: 'Gray Smith',
+        name: 'Gray Smithers',
+        email: 'gray.smith@gmail.com',
         password: 'asdfasdf',
         building_id: 1,
       })
