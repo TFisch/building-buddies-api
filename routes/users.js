@@ -140,7 +140,7 @@ router.delete('/:user_id/interests/:interest_id', (req, res) => {
     .where('interest_id', interest_id)
     .then((userInterest) => {
       if (!userInterest.length) {
-        return res.status(404).send('Could not find a matching user interest.');
+        return res.status(404).json({ error: 'Could not find a matching user interest.' });
       }
       return database('user_interests')
         .where('id', userInterest[0].id)
@@ -159,7 +159,7 @@ router.get('/:user_id/interests', (req, res) => {
     .where('user_id', user_id)
     .then((userInterests) => {
       if (!userInterests.length) {
-        return res.status(404).send(`Could not find interests for user ${user_id}`);
+        return res.status(404).json({ error: `Could not find interests for user ${user_id}` });
       }
 
       const interests = userInterests.map(interest => database('interests')
