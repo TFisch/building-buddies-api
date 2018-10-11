@@ -22,10 +22,10 @@ router.get('/:user_id', (req, res) => {
     .where('id', req.params.user_id)
     .select()
     .then((user) => {
-      if (!user) {
-        return res.status(404).json({ error: `No user with the id of ${req.params.user_id} was found.` });
+      if (user.length) {
+        return res.status(200).json(user[0]);
       }
-      return res.status(200).json(user);
+      return res.status(404).json({ error: `No user with the id of ${req.params.user_id} was found.` });
     })
     .catch(err => res.send(500).json({ err }));
 });

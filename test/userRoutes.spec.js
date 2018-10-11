@@ -8,8 +8,6 @@ const environment = process.env.NODE_ENV || 'test';
 const configuration = require('../knexfile')[environment];
 const database = require('knex')(configuration);
 
-// test
-
 describe('USER API ROUTES', () => {
   beforeEach((done) => {
     database.migrate.rollback()
@@ -43,8 +41,38 @@ describe('USER API ROUTES', () => {
       });
   });
 
-  it.skip('GET /:id should return a user', (done) => {
+  it('GET /:id should return a user', (done) => {
+    chai
+      .request(server)
+      .get('/api/v1/users/1')
+      .end((err, res) => {
+        res.should.have.status(200);
+        res.should.be.json;
+        res.body.should.be.a('object');
+        res.body.should.have.property('name');
+        res.body.name.should.equal('Gray Smith');
+        res.body.should.have.property('building_id');
+        res.body.building_id.should.equal(1);
+        res.body.should.have.property('email');
+        res.body.email.should.equal('gray.smith@gmail.com');
+        res.body.should.have.property('password');
+        res.body.password.should.equal('asdfasdf');
+        done();
+      });
+  });
 
+  it('GET /:id should send an error if user doesn\'t exist', (done) => {
+    chai
+      .request(server)
+      .get('/api/v1/users/500')
+      .end((err, res) => {
+        res.should.have.status(404);
+        res.should.be.json;
+        res.body.should.be.a('object');
+        res.body.should.have.property('error');
+        res.body.error.should.equal('No user with the id of 500 was found.');
+        done();
+      });
   });
 
   it.skip('POST / should create a new user', (done) => {
