@@ -22,10 +22,10 @@ router.get('/:user_id', (req, res) => {
     .where('id', req.params.user_id)
     .select()
     .then((user) => {
-      if (!user) {
-        return res.status(404).json({ error: `No user with the id of ${req.params.user_id} was found.` });
+      if (user.length) {
+        return res.status(200).json(user[0]);
       }
-      return res.status(200).json(user);
+      return res.status(404).json({ error: `No user with the id of ${req.params.user_id} was found.` });
     })
     .catch(err => res.send(500).json({ err }));
 });
@@ -71,27 +71,29 @@ router.post('/', (req, res) => {
 // update user
 router.put('/:user_id', (req, res) => {
   const { user_id } = req.params;
-  const {
-    name, email, password, building_id,
-  } = req.body;
-  const params = {
-    name, email, password, building_id,
-  };
-  const requiredParams = Object.keys(params).includes(false);
+  const updatedUser = req.body;
+  const acceptedParams = [
+    'name',
+    'email',
+    'password',
+    'building_id',
+  ];
+  const keyArray = Object.keys(updatedUser).map(key => (
+    acceptedParams.includes(key)));
 
-  if (!requiredParams) {
-    return res.status(422).send('Looks like you are missing a required parameter');
+  if (!keyArray.includes(false)) {
+    database('users')
+      .where('id', user_id)
+      .update(updatedUser)
+      .then((user) => {
+        if (!user) {
+          return res.status(404).json({ error: `Could not find user with id: ${user_id}.` });
+        }
+        return res.status(200).json({ id: user });
+      });
+  } else {
+    return res.status(422).json({ error: 'Looks like you are using unaccepted parameters.' });
   }
-
-  database('users')
-    .where('id', user_id)
-    .update(params)
-    .then((user) => {
-      if (!user) {
-        return res.status(404).json({ error: `Could not find user with id: ${user_id}.` });
-      }
-      return res.status(200).json({ id: user_id });
-    });
 });
 
 // delete user
@@ -104,7 +106,7 @@ router.delete('/:user_id', (req, res) => {
     .del()
     .then((user) => {
       if (!user) {
-        return res.status(404).send({ error: `Could not find user with id ${user_id}` });
+        return res.status(404).json({ error: `Could not find user with id ${user_id}.` });
       }
       return res.status(200).send(`User ${user_id} was successfully deleted`);
     });
@@ -119,7 +121,7 @@ router.post('/:user_id/interests/:interest_id', (req, res) => {
     .where('interest_id', interest_id)
     .then((userInterest) => {
       if (userInterest.length) {
-        return res.status(409).send('Interest is already saved for this user.');
+        return res.status(409).json({ error: 'Interest is already saved for this user.' });
       }
       return database('user_interests')
         .insert({ user_id, interest_id }, 'id')
@@ -138,7 +140,7 @@ router.delete('/:user_id/interests/:interest_id', (req, res) => {
     .where('interest_id', interest_id)
     .then((userInterest) => {
       if (!userInterest.length) {
-        return res.status(404).send('Could not find a matching user interest.');
+        return res.status(404).json({ error: 'Could not find a matching user interest.' });
       }
       return database('user_interests')
         .where('id', userInterest[0].id)
@@ -157,7 +159,7 @@ router.get('/:user_id/interests', (req, res) => {
     .where('user_id', user_id)
     .then((userInterests) => {
       if (!userInterests.length) {
-        return res.status(404).send(`Could not find interests for user ${user_id}`);
+        return res.status(404).json({ error: `Could not find interests for user ${user_id}` });
       }
 
       const interests = userInterests.map(interest => database('interests')
