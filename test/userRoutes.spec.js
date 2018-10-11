@@ -114,4 +114,29 @@ describe('USER API ROUTES', () => {
       });
   });
 
+  it('DELETE /:user_id should delete a user', (done) => {
+    chai
+      .request(server)
+      .delete('/api/v1/users/1')
+      .end((err, res) => {
+        res.should.have.status(200);
+        res.should.be.html;
+        res.text.should.equal('User 1 was successfully deleted');
+        done();
+      });
+  });
+
+  it('DELETE /:user_id should send an error if user doesn\'t exist', (done) => {
+    chai
+      .request(server)
+      .delete('/api/v1/users/500')
+      .end((err, res) => {
+        res.should.have.status(404);
+        res.should.be.json;
+        res.body.should.be.a('object');
+        res.body.should.have.property('error');
+        res.body.error.should.equal('Could not find user with id 500.');
+        done();
+      });
+  });
 });
