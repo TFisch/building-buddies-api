@@ -19,7 +19,7 @@ module.exports = {
       directory: './db/migrations',
     },
     seeds: {
-      directory: `${__dirname}/db/seeds/development`,
+      directory: `${__dirname}/db/seeds/test`,
     },
     useNullAsDefault: true,
   },
@@ -29,6 +29,9 @@ module.exports = {
     connection: `${process.env.DATABASE_URL}?ssl=true`,
     migrations: {
       directory: './db/migrations',
+    },
+    seeds: {
+      directory: `${__dirname}/db/seeds/production`,
     },
     useNullAsDefault: true,
   },
