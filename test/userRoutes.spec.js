@@ -41,6 +41,36 @@ describe('USER API ROUTES', () => {
       });
   });
 
+  // it should get all the users with a specific interest
+  it('GET /api/v1/users?interest=:interest_name should get all the users with a certain interest', (done) => {
+    chai
+      .request(server)
+      .get('/api/v1/users?interest=golf')
+      .end((err, res) => {
+        res.should.have.status(200);
+        res.should.be.json;
+        res.body.should.be.a('array');
+        res.body[0].should.be.a('string');
+        res.body[0].should.equal('Gray Smith');
+        done();
+      });
+  });
+
+  // it should return a 404 if no interest with that name is found
+  it('GET /api/v1/users?interes=:interest_name should return a 404 if no interest with that name is found', (done) => {
+    chai
+      .request(server)
+      .get('/api/v1/users?interest=cheesemongering')
+      .end((err, res) => {
+        res.should.have.status(404);
+        res.should.be.json;
+        res.body.should.deep.equal({
+          error: 'Interest cheesemongering is not valid.',
+        });
+        done();
+      });
+  });
+
   it('GET /:id should return a user', (done) => {
     chai
       .request(server)
@@ -119,7 +149,7 @@ describe('USER API ROUTES', () => {
       .request(server)
       .put('/api/v1/users/1')
       .send({
-        name: 'Gray Smithers'
+        name: 'Gray Smithers',
       })
       .end((err, res) => {
         res.should.have.status(200);
