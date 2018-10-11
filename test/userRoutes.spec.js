@@ -75,15 +75,43 @@ describe('USER API ROUTES', () => {
       });
   });
 
-  it.skip('POST / should create a new user', (done) => {
-
+  it('POST / should create a new user', (done) => {
+    chai
+      .request(server)
+      .post('/api/v1/users/')
+      .send({
+        name: 'Test',
+        email: 'test@test.com',
+        password: 'asdfasdf',
+        building_id: 1,
+      })
+      .end((err, res) => {
+        res.should.have.status(201);
+        res.should.be.json;
+        res.body.should.be.a('object');
+        res.body.should.have.property('id');
+        res.body.id.should.be.a('number');
+        done();
+      });
   });
 
-  it.skip('PUT /:user_id should update a user', (done) => {
-
+  it('POST / should send an error if params don\'t match', (done) => {
+    chai
+      .request(server)
+      .post('/api/v1/users/')
+      .send({
+        name: 'Test',
+        password: 'asdfasdf',
+        building_id: 1,
+      })
+      .end((err, res) => {
+        res.should.have.status(422);
+        res.should.be.json;
+        res.body.should.be.a('object');
+        res.body.should.have.property('error');
+        res.body.error.should.equal('Expected format: { name: <String>, email: <String>, password: <String>, building_id: <Integer> }. You\'re missing a "email" property.');
+        done();
+      });
   });
 
-  it.skip('DELETE /:user_id should delete a user', (done) => {
-
-  });
 });
