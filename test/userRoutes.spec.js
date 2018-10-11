@@ -251,4 +251,32 @@ describe('USER API ROUTES', () => {
         done();
       });
   });
+
+  it.skip('GET /:user_id/interests should get all user interests', (done) => {
+    chai
+      .request(server)
+      .get('/api/v1/users/1/interests')
+      .end((err, res) => {
+        res.should.have.status(200);
+        res.should.be.json;
+        res.body.should.be.a('array');
+        res.body.length.should.equal(0);
+        res.body[0].should.equal('');
+        done();
+      });
+  });
+
+  it('GET /:user_id/interests should send an error if user has no interests', (done) => {
+    chai
+      .request(server)
+      .get('/api/v1/users/1/interests')
+      .end((err, res) => {
+        res.should.have.status(404);
+        res.should.be.json;
+        res.body.should.be.a('object');
+        res.body.should.have.property('error');
+        res.body.error.should.equal('Could not find interests for user 1');
+        done();
+      });
+  });
 });
