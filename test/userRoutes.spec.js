@@ -296,7 +296,7 @@ describe('USER API ROUTES', () => {
       });
   });
 
-  it.only('GET /:user_id/interests should send an error if user has no interests', (done) => {
+  it('GET /:user_id/interests should send an error if user has no interests', (done) => {
     chai
       .request(server)
       .get('/api/v1/users/5/interests')

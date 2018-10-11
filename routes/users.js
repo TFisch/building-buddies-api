@@ -9,8 +9,8 @@ const database = require('knex')(configuration);
 // get all users
 router.get('/', (req, res) => {
   // find users with a certain interest
-  if (req.param('interest')) {
-    const interest_name = req.param('interest');
+  if (req.query.interest) {
+    const interest_name = req.query.interest;
     return database('interests')
       .where('name', interest_name)
       .then((interest) => {
@@ -167,9 +167,10 @@ router.get('/:user_id/interests', (req, res) => {
         .then(foundInterest => foundInterest[0].name)
         .catch(err => res.status(500).json({ err })));
 
-      return Promise.all(interests);
+      Promise.all(interests)
+        .then(allInterests => res.status(200).json(allInterests))
+        .catch(err => res.status(500).json({ err }));
     })
-    .then(interests => res.status(200).json(interests))
     .catch(err => res.status(500).json({ err }));
 });
 
