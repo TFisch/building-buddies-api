@@ -121,7 +121,7 @@ router.post('/:user_id/interests/:interest_id', (req, res) => {
     .where('interest_id', interest_id)
     .then((userInterest) => {
       if (userInterest.length) {
-        return res.status(409).send('Interest is already saved for this user.');
+        return res.status(409).json({ error: 'Interest is already saved for this user.' });
       }
       return database('user_interests')
         .insert({ user_id, interest_id }, 'id')
