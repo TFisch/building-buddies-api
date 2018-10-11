@@ -37,6 +37,37 @@ describe('BUILDING API ROUTES', () => {
       });
   });
 
+  // should get an individual building
+  it('GET /api/v1/buildings/:building_id should get a building by id', (done) => {
+    chai
+      .request(server)
+      .get('/api/v1/buildings/1')
+      .end((err, res) => {
+        res.should.have.status(200);
+        res.should.be.json;
+        res.body.should.be.a('array');
+        res.body[0].should.have.property('address');
+        res.body[0].address.should.equal('1910 S Josephine St\nDenver, CO\n');
+        res.body[0].should.have.property('name');
+        res.body[0].name.should.equal('Modera Observatory Park');
+        done();
+      });
+  });
+
+  // should return a 404 if the building is not found
+  it('GET /api/v1/buildings/:building_id should return a 404 if the building id is not found', (done) => {
+    chai
+      .request(server)
+      .get('/api/v1/buildings/600')
+      .end((err, res) => {
+        res.should.have.status(404);
+        res.should.be.json;
+        res.body.should.be.a('object');
+        res.body.should.have.property('error');
+        done();
+      });
+  });
+
   // should create a new building
   it('POST /api/v1/buildings should create a new building', (done) => {
     chai

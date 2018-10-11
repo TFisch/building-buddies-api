@@ -13,6 +13,19 @@ router.get('/', (req, res) => {
     .catch(err => res.status(500).json({ err }));
 });
 
+router.get('/:building_id', (req, res) => {
+  database('buildings')
+    .where('id', req.params.building_id)
+    .select()
+    .then((buildings) => {
+      if (!buildings.length) {
+        return res.status(404).json({ error: `No building found with the id of ${req.params.id}` });
+      }
+      return res.status(200).json(buildings);
+    })
+    .catch(err => res.status(500).json({ err }));
+});
+
 // create new building
 router.post('/', (req, res) => {
   const { name, address } = req.body;
