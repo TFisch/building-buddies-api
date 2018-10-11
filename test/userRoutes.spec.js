@@ -207,7 +207,7 @@ describe('USER API ROUTES', () => {
         done();
       });
   });
-  
+
   // Need to seed user interests
   // Add specific error if user or interest id does not exist
   it.skip('POST /:user_id/interests/:interest_id should send an error if user already has that interest', (done) => {
@@ -224,17 +224,31 @@ describe('USER API ROUTES', () => {
       });
   });
 
-  // it('DELETE /:user_id/interests/:interest_id should add a user interest', (done) => {
-  //   chai
-  //     .request(server)
-  //     .delete('/api/v1/users/1/interests/4')
-  //     .end((err, res) => {
-  //       res.should.have.status(201);
-  //       res.should.be.json;
-  //       res.body.should.be.a('object');
-  //       res.body.should.have.property('id');
-  //       res.body.id.should.be.a('number');
-  //       done();
-  //     });
-  // });
+  it.skip('DELETE /:user_id/interests/:interest_id should add a user interest', (done) => {
+    chai
+      .request(server)
+      .delete('/api/v1/users/1/interests/4')
+      .end((err, res) => {
+        res.should.have.status(201);
+        res.should.be.json;
+        res.body.should.be.a('object');
+        res.body.should.have.property('id');
+        res.body.id.should.be.a('number');
+        done();
+      });
+  });
+
+  it('DELETE /:user_id/interests/:interest_id should send an error if there is no matching user interest', (done) => {
+    chai
+      .request(server)
+      .delete('/api/v1/users/1/interests/4')
+      .end((err, res) => {
+        res.should.have.status(404);
+        res.should.be.json;
+        res.body.should.be.a('object');
+        res.body.should.have.property('error');
+        res.body.error.should.equal('Could not find a matching user interest.');
+        done();
+      });
+  });
 });
