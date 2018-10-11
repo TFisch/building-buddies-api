@@ -193,4 +193,48 @@ describe('USER API ROUTES', () => {
         done();
       });
   });
+
+  it('POST /:user_id/interests/:interest_id should add a user interest', (done) => {
+    chai
+      .request(server)
+      .post('/api/v1/users/1/interests/4')
+      .end((err, res) => {
+        res.should.have.status(201);
+        res.should.be.json;
+        res.body.should.be.a('object');
+        res.body.should.have.property('id');
+        res.body.id.should.be.a('number');
+        done();
+      });
+  });
+  
+  // Need to seed user interests
+  // Add specific error if user or interest id does not exist
+  it.skip('POST /:user_id/interests/:interest_id should send an error if user already has that interest', (done) => {
+    chai
+      .request(server)
+      .post('/api/v1/users/1/interests/4')
+      .end((err, res) => {
+        res.should.have.status(409);
+        res.should.be.json;
+        res.body.should.be.a('object');
+        res.body.should.have.property('error');
+        res.body.error.should.equal('Interest is already saved for this user.');
+        done();
+      });
+  });
+
+  // it('DELETE /:user_id/interests/:interest_id should add a user interest', (done) => {
+  //   chai
+  //     .request(server)
+  //     .delete('/api/v1/users/1/interests/4')
+  //     .end((err, res) => {
+  //       res.should.have.status(201);
+  //       res.should.be.json;
+  //       res.body.should.be.a('object');
+  //       res.body.should.have.property('id');
+  //       res.body.id.should.be.a('number');
+  //       done();
+  //     });
+  // });
 });
