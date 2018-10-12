@@ -72,6 +72,7 @@ describe('INTEREST API ROUTES', () => {
         res.should.be.json;
         res.body.should.be.a('object');
         res.body.should.have.property('error');
+        res.body.error.should.equal('Expected format: { name: <String> }. You\'re missing a name property.')
         done();
       });
   });
@@ -90,6 +91,7 @@ describe('INTEREST API ROUTES', () => {
         res.should.be.json;
         res.body.should.be.a('object');
         res.body.should.have.property('error');
+        res.body.error.should.equal('That interest already exists.');
         done();
       });
   });

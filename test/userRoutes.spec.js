@@ -208,8 +208,10 @@ describe('USER API ROUTES', () => {
       .delete('/api/v1/users/1')
       .end((err, res) => {
         res.should.have.status(200);
-        res.should.be.html;
-        res.text.should.equal('User 1 was successfully deleted');
+        res.should.be.json;
+        res.body.should.be.a('object');
+        res.body.should.have.property('message');
+        res.body.message.should.equal('User 1 was successfully deleted.');
         done();
       });
   });
@@ -262,8 +264,9 @@ describe('USER API ROUTES', () => {
       .delete('/api/v1/users/1/interests/3')
       .end((err, res) => {
         res.should.have.status(200);
-        res.should.be.html;
-        res.text.should.equal('Interest 3 was successfully deleted for user 1.');
+        res.should.be.json;
+        res.body.should.have.property('message');
+        res.body.message.should.equal('Interest 3 was successfully deleted for user 1.');
         done();
       });
   });

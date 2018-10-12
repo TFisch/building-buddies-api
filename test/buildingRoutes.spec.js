@@ -64,6 +64,7 @@ describe('BUILDING API ROUTES', () => {
         res.should.be.json;
         res.body.should.be.a('object');
         res.body.should.have.property('error');
+        res.body.error.should.equal('No building found with the id of 600.');
         done();
       });
   });
@@ -104,6 +105,7 @@ describe('BUILDING API ROUTES', () => {
         res.should.be.json;
         res.body.should.be.a('object');
         res.body.should.have.property('error');
+        res.body.error.should.equal('That building already exists.');
         done();
       });
   });
@@ -120,6 +122,7 @@ describe('BUILDING API ROUTES', () => {
         res.should.be.json;
         res.body.should.be.a('object');
         res.body.should.have.property('error');
+        res.body.error.should.equal('Expected format: { name: <String>, address: <String> }. You\'re missing a "name" property.');
         done();
       });
   });
@@ -160,6 +163,7 @@ describe('BUILDING API ROUTES', () => {
         res.should.be.json;
         res.body.should.be.a('object');
         res.body.should.have.property('error');
+        res.body.error.should.equal('Could not find building with id 600.');
         done();
       });
   });
@@ -179,6 +183,7 @@ describe('BUILDING API ROUTES', () => {
         res.should.be.json;
         res.body.should.be.a('object');
         res.body.should.have.property('error');
+        res.body.error.should.equal('Expected format: { name: <String>, address: <String> }. You\'re missing a "name" property.');
         done();
       });
   });
@@ -193,6 +198,7 @@ describe('BUILDING API ROUTES', () => {
         res.should.be.json;
         res.body.should.be.a('object');
         res.body.should.have.property('message');
+        res.body.message.should.equal('Building 1 was successfully deleted.');
         done();
       });
   });
@@ -207,6 +213,7 @@ describe('BUILDING API ROUTES', () => {
         res.should.be.json;
         res.body.should.be.a('object');
         res.body.should.have.property('error');
+        res.body.error.should.equal('Could not find building with id 600.');
         done();
       });
   });

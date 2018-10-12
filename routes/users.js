@@ -83,7 +83,16 @@ router.post('/', validateUserParams, (req, res) => {
 // update user
 router.put('/:user_id', validateUserParams, (req, res) => {
   const { user_id } = req.params;
-  const updatedUser = req.body;
+  const {
+    name, email, building_id, password,
+  } = req.body;
+
+  const updatedUser = {
+    name,
+    email,
+    password,
+    building_id,
+  };
 
   database('users')
     .where('id', user_id)
@@ -108,7 +117,7 @@ router.delete('/:user_id', (req, res) => {
       if (!user) {
         return res.status(404).json({ error: `Could not find user with id ${user_id}.` });
       }
-      return res.status(200).send(`User ${user_id} was successfully deleted`);
+      return res.status(200).json({ message: `User ${user_id} was successfully deleted.` });
     });
 });
 
@@ -145,7 +154,7 @@ router.delete('/:user_id/interests/:interest_id', (req, res) => {
       return database('user_interests')
         .where('id', userInterest[0].id)
         .del()
-        .then(() => res.status(200).send(`Interest ${interest_id} was successfully deleted for user ${user_id}.`))
+        .then(() => res.status(200).json({ message: `Interest ${interest_id} was successfully deleted for user ${user_id}.` }))
         .catch(err => res.status(500).json({ err }));
     })
     .catch(err => res.status(500).json({ err }));
