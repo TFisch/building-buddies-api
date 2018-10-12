@@ -1,4 +1,5 @@
 const express = require('express');
+const { validateInterestParam } = require('../middlewares/validations');
 
 const router = express.Router();
 const environment = process.env.NODE_ENV || 'development';
@@ -14,16 +15,8 @@ router.get('/', (req, res) => {
 });
 
 // create new interest
-router.post('/', (req, res) => {
+router.post('/', validateInterestParam, (req, res) => {
   const { name } = req.body;
-
-  if (!name) {
-    return res.status(422).send({
-      error:
-        "Expected format: { name: <String> }. You're missing a name property.",
-    });
-  }
-
   const newInterest = { name: name.toLowerCase() };
 
   database('interests')
@@ -31,7 +24,7 @@ router.post('/', (req, res) => {
     .then((response) => {
       if (response.length > 0) {
         return res.status(409).send({
-          error: 'That interest already exists',
+          error: 'That interest already exists.',
         });
       }
       return database('interests')
@@ -41,11 +34,5 @@ router.post('/', (req, res) => {
     })
     .catch(err => res.status(500).json({ err }));
 });
-
-// get all users with a certain interest
-// router.get('/', (req, res) => {
-//   const interest_name = req.param('interest');
-//   console.log(interest_name)
-// });
 
 module.exports = router;
