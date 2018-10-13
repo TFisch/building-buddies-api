@@ -1,13 +1,8 @@
 const chai = require('chai');
 const chaiHttp = require('chai-http');
-const server = require('../server');
-const interestData = require('../data/interestData.json');
+const { app, database } = require('../server');
 
 chai.use(chaiHttp);
-
-const environment = process.env.NODE_ENV || 'test';
-const configuration = require('../knexfile')[environment];
-const database = require('knex')(configuration);
 
 describe('INTEREST API ROUTES', () => {
   beforeEach((done) => {
@@ -24,7 +19,7 @@ describe('INTEREST API ROUTES', () => {
   // it should return all the interests
   it('GET /api/v1/interests should return all interests', (done) => {
     chai
-      .request(server)
+      .request(app)
       .get('/api/v1/interests')
       .end((err, res) => {
         res.should.have.status(200);
@@ -41,7 +36,7 @@ describe('INTEREST API ROUTES', () => {
   // it should create a new interest
   it('POST /api/v1/interests should create a new interest', (done) => {
     chai
-      .request(server)
+      .request(app)
       .post('/api/v1/interests')
       .type('json')
       .send({
@@ -61,7 +56,7 @@ describe('INTEREST API ROUTES', () => {
   // should return a 422 if the correct params were not sent
   it('POST /api/v1/interests should return a 422 if the correct params were not sent', (done) => {
     chai
-      .request(server)
+      .request(app)
       .post('/api/v1/interests')
       .type('json')
       .send({
@@ -80,7 +75,7 @@ describe('INTEREST API ROUTES', () => {
   // should return a 409 if the interst already exists
   it('POST /api/v1/interests should return a 409 if the interest already exists', (done) => {
     chai
-      .request(server)
+      .request(app)
       .post('/api/v1/interests')
       .type('json')
       .send({
@@ -95,7 +90,4 @@ describe('INTEREST API ROUTES', () => {
         done();
       });
   });
-
-
-  // should return all users with a certain interest
 });

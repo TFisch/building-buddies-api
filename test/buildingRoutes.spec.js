@@ -1,12 +1,8 @@
 const chai = require('chai');
 const chaiHttp = require('chai-http');
-const server = require('../server');
+const { app, database } = require('../server');
 
 chai.use(chaiHttp);
-
-const environment = process.env.NODE_ENV || 'test';
-const configuration = require('../knexfile')[environment];
-const database = require('knex')(configuration);
 
 describe('BUILDING API ROUTES', () => {
   beforeEach((done) => {
@@ -23,7 +19,7 @@ describe('BUILDING API ROUTES', () => {
   // should get all buildings
   it('GET /api/v1/buildings should return all buildings', (done) => {
     chai
-      .request(server)
+      .request(app)
       .get('/api/v1/buildings')
       .end((err, res) => {
         res.should.have.status(200);
@@ -40,7 +36,7 @@ describe('BUILDING API ROUTES', () => {
   // should get an individual building
   it('GET /api/v1/buildings/:building_id should get a building by id', (done) => {
     chai
-      .request(server)
+      .request(app)
       .get('/api/v1/buildings/1')
       .end((err, res) => {
         res.should.have.status(200);
@@ -57,7 +53,7 @@ describe('BUILDING API ROUTES', () => {
   // should return a 404 if the building is not found
   it('GET /api/v1/buildings/:building_id should return a 404 if the building id is not found', (done) => {
     chai
-      .request(server)
+      .request(app)
       .get('/api/v1/buildings/600')
       .end((err, res) => {
         res.should.have.status(404);
@@ -72,7 +68,7 @@ describe('BUILDING API ROUTES', () => {
   // should create a new building
   it('POST /api/v1/buildings should create a new building', (done) => {
     chai
-      .request(server)
+      .request(app)
       .post('/api/v1/buildings')
       .type('json')
       .send({
@@ -93,7 +89,7 @@ describe('BUILDING API ROUTES', () => {
   // should return a 409 if the building already exists
   it('POST /api/v1/buildings should return a 409 if the building already exists', (done) => {
     chai
-      .request(server)
+      .request(app)
       .post('/api/v1/buildings')
       .type('json')
       .send({
@@ -114,7 +110,7 @@ describe('BUILDING API ROUTES', () => {
   // should return a 422 if the a param is missing
   it('POST /api/v1/buildings should return a 422 if there is a missing param', (done) => {
     chai
-      .request(server)
+      .request(app)
       .post('/api/v1/buildings')
       .type('json')
       .end((err, res) => {
@@ -130,7 +126,7 @@ describe('BUILDING API ROUTES', () => {
   // should update an existing building
   it('PUT /api/v1/buildings/:building_id should update an existing building', (done) => {
     chai
-      .request(server)
+      .request(app)
       .put('/api/v1/buildings/1')
       .type('json')
       .send({
@@ -151,7 +147,7 @@ describe('BUILDING API ROUTES', () => {
   // should return a 404 if a building with that id was not found
   it('PUT /api/v1/buildings/:building_id should return a 404 if the building was not found', (done) => {
     chai
-      .request(server)
+      .request(app)
       .put('/api/v1/buildings/600')
       .type('json')
       .send({
@@ -171,7 +167,7 @@ describe('BUILDING API ROUTES', () => {
   // should return a 422 if the correct params were not sent
   it('PUT /api/v1/buildings/:building_id should return a 422 if the correct params were not sent', (done) => {
     chai
-      .request(server)
+      .request(app)
       .put('/api/v1/buildings/1')
       .type('json')
       .send({
