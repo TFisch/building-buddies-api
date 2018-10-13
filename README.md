@@ -6,10 +6,10 @@
 
 ## Table of Contents
 
-* [Buildings](#buildings)
-* [Users](#users)
-* [Interests](#interests)
-* [User Interests](#user-interests)
+* [Buildings](#-buildings)
+* [Users](#-users)
+* [Interests](#-interests)
+* [User Interests](#%EF%B8%8F-user-interests)
 
 ## 🏢 Buildings
 
