@@ -267,6 +267,17 @@ Example Response:
 ]
 ```
 
+Get all users by interest ```/api/v1/users?interest=golf```
+
+Example Response:
+
+```
+[
+	"Tom Watson",
+	"Michelle Wie"
+]
+```
+
 ### POST
 
 Add new user interest ```/api/v1/users/:user_id/interests/:interest_id```
