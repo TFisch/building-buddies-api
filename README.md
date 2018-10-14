@@ -290,7 +290,7 @@ Example Response:
 
 ```
 {
-    "id": 7
+	"id": 7
 }
 ```
 
@@ -308,6 +308,6 @@ Example Response:
 
 ```
 {
-    "message": "Interest 1 was successfully deleted for user 7."
+	"message": "Interest 1 was successfully deleted for user 7."
 }
 ```
