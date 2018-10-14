@@ -106,7 +106,9 @@ Example Response:
 
 ### GET
 
-#### Get all users ```/api/v1/users```
+Get all users ```/api/v1/users```
+
+Optional Query Parameters: '?interest=golf'
 
 Example Response:
 
@@ -133,7 +135,7 @@ Example Response:
 ]
 ```
 
-#### Get user by id ```/api/v1/users/:user_id```
+Get user by id ```/api/v1/users/:user_id```
 
 Example Response:
 
@@ -149,21 +151,10 @@ Example Response:
 }
 ```
 
-#### Get all user interests ```/api/v1/users/:user_id/interests```
-
-Example Response:
-
-```
-[
-	"golf",
-	"gardening",
-	"camping"
-]
-```
 
 ### POST
 
-#### Create a new user ```/api/v1/users```
+Create a new user ```/api/v1/users```
 
 Required Params:
 
@@ -184,23 +175,9 @@ Example Response:
 }
 ```
 
-#### Add new user interest ```/api/v1/users/:user_id/interests/:interest_id```
-
-Example Request:
-
-```/api/v1/users/7/interests/1```
-
-Example Response:
-
-```
-{
-    "id": 7
-}
-```
-
 ### PUT
 
-#### Update user ```/api/v1/users/:user_id```
+Update user ```/api/v1/users/:user_id```
 
 Required Params:
 
@@ -223,29 +200,13 @@ Example Response:
 
 ### DELETE
 
-#### Delete user ```/api/v1/users/:user_id```
+Delete user ```/api/v1/users/:user_id```
 
 Example Response:
 
 ```
 {
     "message": "User 9 was successfully deleted."
-}
-```
-
-#### Delete user interest ```/api/v1/users/:user_id/interests/:interest_id```
-
-Example Request:
-
-```
-/api/v1/users/7/interests/1
-```
-
-Example Response:
-
-```
-{
-    "message": "Interest 1 was successfully deleted for user 7."
 }
 ```
 
@@ -291,3 +252,51 @@ Example Response:
 { id: 1 }
 ```
 ## 🏌️ User Interests
+
+### GET
+
+Get all user interests ```/api/v1/users/:user_id/interests```
+
+Example Response:
+
+```
+[
+	"golf",
+	"gardening",
+	"camping"
+]
+```
+
+### POST
+
+Add new user interest ```/api/v1/users/:user_id/interests/:interest_id```
+
+Example Request:
+
+```/api/v1/users/7/interests/1```
+
+Example Response:
+
+```
+{
+    "id": 7
+}
+```
+
+### DELETE
+
+Delete user interest ```/api/v1/users/:user_id/interests/:interest_id```
+
+Example Request:
+
+```
+/api/v1/users/7/interests/1
+```
+
+Example Response:
+
+```
+{
+    "message": "Interest 1 was successfully deleted for user 7."
+}
+```
