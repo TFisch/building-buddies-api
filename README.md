@@ -149,6 +149,18 @@ Example Response:
 }
 ```
 
+#### Get all user interests ```/api/v1/users/:user_id/interests```
+
+Example Response:
+
+```
+[
+	"golf",
+	"gardening",
+	"camping"
+]
+```
+
 ### POST
 
 #### Create a new user ```/api/v1/users```
@@ -225,13 +237,17 @@ Example Response:
 
 Example Request:
 
-```/api/v1/users/7/interests/1```
+```
+/api/v1/users/7/interests/1
+```
 
 Example Response:
 
+```
 {
     "message": "Interest 1 was successfully deleted for user 7."
 }
+```
 
 
 ## ⛳ Interests
