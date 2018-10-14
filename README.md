@@ -104,6 +104,74 @@ Example Response:
 
 ## 👩‍💻 Users
 
+### GET
+
+Get all users ```/api/v1/users```
+
+Example Response:
+
+```
+[
+  {
+    id: 1,
+    name: "Bob Example",
+    building_id: 1,
+    created_at: "2018-10-14T18:06:35.045Z",
+    updated_at: "2018-10-14T18:06:35.045Z",
+    email: "bob@example.com",
+    password: "asdfasdf"
+  },
+  {
+    id: 2,
+    name: "Tina Example",
+    building_id: 2,
+    created_at: "2018-10-14T18:06:35.045Z",
+    updated_at: "2018-10-14T18:06:35.045Z",
+    email: "tina@example.com",
+    password: "asdfasdf"
+  }
+]
+```
+
+Get user by id ```/api/v1/users/:user_id```
+
+Example Response:
+
+```
+{
+  id: 1,
+  name: "Bob Example",
+  building_id: 1,
+  created_at: "2018-10-14T18:06:35.045Z",
+  updated_at: "2018-10-14T18:06:35.045Z",
+  email: "bob@example.com",
+  password: "asdfasdf"
+}
+```
+
+### POST
+
+Create a new user ```/api/v1/users```
+
+Required Params:
+
+```
+{
+	"name": "Jean Watson",
+	"email": "jean@example.com",
+	"password": "asdfasdf",
+	"building_id": 1
+}
+```
+
+Example Response: 
+
+```
+{
+    "id": 9
+}
+```
+
 ## ⛳ Interests
 
 ### GET
