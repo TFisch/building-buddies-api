@@ -108,7 +108,7 @@ Example Response:
 
 Get all users ```/api/v1/users```
 
-Optional Query Parameters: '?interest=golf'
+Optional Query Parameters: `?interest=golf`
 
 Example Response:
 
