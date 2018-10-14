@@ -106,7 +106,7 @@ Example Response:
 
 ### GET
 
-Get all users ```/api/v1/users```
+#### Get all users ```/api/v1/users```
 
 Example Response:
 
@@ -133,7 +133,7 @@ Example Response:
 ]
 ```
 
-Get user by id ```/api/v1/users/:user_id```
+#### Get user by id ```/api/v1/users/:user_id```
 
 Example Response:
 
@@ -151,7 +151,7 @@ Example Response:
 
 ### POST
 
-Create a new user ```/api/v1/users```
+#### Create a new user ```/api/v1/users```
 
 Required Params:
 
@@ -168,9 +168,71 @@ Example Response:
 
 ```
 {
-    "id": 9
+	"id": 9
 }
 ```
+
+#### Add new user interest ```/api/v1/users/:user_id/interests/:interest_id```
+
+Example Request:
+
+```/api/v1/users/7/interests/1```
+
+Example Response:
+
+```
+{
+    "id": 7
+}
+```
+
+### PUT
+
+#### Update user ```/api/v1/users/:user_id```
+
+Required Params:
+
+```
+{
+	"name": "Jean Watson",
+	"email": "jean@example.com",
+	"password": "password",
+	"building_id": 1
+}
+```
+
+Example Response:
+
+```
+{
+	"id": 9
+}
+```
+
+### DELETE
+
+#### Delete user ```/api/v1/users/:user_id```
+
+Example Response:
+
+```
+{
+    "message": "User 9 was successfully deleted."
+}
+```
+
+#### Delete user interest ```/api/v1/users/:user_id/interests/:interest_id```
+
+Example Request:
+
+```/api/v1/users/7/interests/1```
+
+Example Response:
+
+{
+    "message": "Interest 1 was successfully deleted for user 7."
+}
+
 
 ## ⛳ Interests
 
