@@ -160,19 +160,17 @@ Required Params:
 
 ```
 {
-	"name": "Jean Watson",
-	"email": "jean@example.com",
-	"password": "asdfasdf",
-	"building_id": 1
+  name: "Jean Watson",
+  email: "jean@example.com",
+  password: "asdfasdf",
+  building_id: 1
 }
 ```
 
 Example Response: 
 
 ```
-{
-	"id": 9
-}
+{ id: 9 }
 ```
 
 ### PUT
@@ -183,19 +181,17 @@ Required Params:
 
 ```
 {
-	"name": "Jean Watson",
-	"email": "jean@example.com",
-	"password": "password",
-	"building_id": 1
+  name: "Jean Watson",
+  email: "jean@example.com",
+  password: "password",
+  building_id: 1
 }
 ```
 
 Example Response:
 
 ```
-{
-	"id": 9
-}
+{ id: 9 }
 ```
 
 ### DELETE
@@ -205,9 +201,7 @@ Delete user ```/api/v1/users/:user_id```
 Example Response:
 
 ```
-{
-    "message": "User 9 was successfully deleted."
-}
+{ message: "User 9 was successfully deleted." }
 ```
 
 
@@ -261,9 +255,9 @@ Example Response:
 
 ```
 [
-	"golf",
-	"gardening",
-	"camping"
+  "golf",
+  "gardening",
+  "camping"
 ]
 ```
 
@@ -273,8 +267,8 @@ Example Response:
 
 ```
 [
-	"Tom Watson",
-	"Michelle Wie"
+  "Tom Watson",
+  "Michelle Wie"
 ]
 ```
 
@@ -289,9 +283,7 @@ Example Request:
 Example Response:
 
 ```
-{
-	"id": 7
-}
+{ id: 7 }
 ```
 
 ### DELETE
@@ -307,7 +299,5 @@ Example Request:
 Example Response:
 
 ```
-{
-	"message": "Interest 1 was successfully deleted for user 7."
-}
+{ message: "Interest 1 was successfully deleted for user 7." }
 ```
