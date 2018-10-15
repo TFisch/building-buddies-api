@@ -2,6 +2,7 @@ const express = require('express');
 
 const app = express();
 const bodyParser = require('body-parser');
+const cors = require('cors');
 
 const environment = process.env.NODE_ENV || 'development';
 const configuration = require('./knexfile')[environment];
@@ -10,6 +11,7 @@ const database = require('knex')(configuration);
 module.exports = { app, database };
 
 app.use(bodyParser.json());
+app.use(cors());
 
 app.get('/', (req, res) => {
   res.send('hello world');
@@ -27,4 +29,3 @@ app.set('port', process.env.PORT || 5000);
 app.listen(app.get('port'), () => {
   console.log(`App listening on port ${app.get('port')}`);
 });
-
