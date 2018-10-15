@@ -1,10 +1,7 @@
 const express = require('express');
 const { validateBuildingParams } = require('../middlewares/validations');
-
+const { app, database } = require('../server');
 const router = express.Router();
-const environment = process.env.NODE_ENV || 'development';
-const configuration = require('../knexfile')[environment];
-const database = require('knex')(configuration);
 
 // get all buildings
 router.get('/', (req, res) => {
