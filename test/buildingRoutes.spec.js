@@ -187,7 +187,7 @@ describe('BUILDING API ROUTES', () => {
   // should delete a building
   it('DELETE /api/v1/buildings/:building_id delete a building', (done) => {
     chai
-      .request(server)
+      .request(app)
       .delete('/api/v1/buildings/1')
       .end((err, res) => {
         res.should.have.status(200);
@@ -202,7 +202,7 @@ describe('BUILDING API ROUTES', () => {
   // should return a 404 if the building was not found
   it('DELETE /api/v1/buildings/:building_id delete a building', (done) => {
     chai
-      .request(server)
+      .request(app)
       .delete('/api/v1/buildings/600')
       .end((err, res) => {
         res.should.have.status(404);

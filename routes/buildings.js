@@ -1,6 +1,6 @@
 const express = require('express');
 const { validateBuildingParams } = require('../middlewares/validations');
-const { database } = require('../server');
+const { app, database } = require('../server');
 const router = express.Router();
 
 // get all buildings

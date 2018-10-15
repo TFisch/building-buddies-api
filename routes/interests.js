@@ -1,6 +1,7 @@
 const express = require('express');
 const { validateInterestParam } = require('../middlewares/validations');
-const { database } = require('../server');
+const { app, database } = require('../server');
+
 const router = express.Router();
 
 // get all interests
