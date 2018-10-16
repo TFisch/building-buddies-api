@@ -84,4 +84,46 @@ router.delete('/:building_id', (req, res) => {
     .catch(err => res.status(500).json({ err }));
 });
 
+// get all building users
+router.get('/:building_id/users', (req, res) => {
+  const { building_id } = req.params;
+
+  database('users')
+    .where('building_id', building_id)
+    .then((users) => {
+      if (!users.length) {
+        return res.status(404).json({ error: `Could not find any users with building id: ${building_id}.` });
+      }
+
+      if (req.query.interest) {
+        const interest_name = req.query.interest;
+        return database('interests')
+          .where('name', interest_name)
+          .then((interest) => {
+            if (!interest.length) {
+              return res
+                .status(404)
+                .json({ error: `Interest ${interest_name} is not valid.` });
+            }
+
+            const userIds = users.map(user => user.id);
+
+            return database('user_interests')
+              .where('interest_id', interest[0].id)
+              .whereIn('user_id', userIds)
+              .then((userInterests) => {
+                const interestedUserIds = userInterests.map(userInterest => userInterest.user_id);
+                const interestedUsers = users.filter(user => interestedUserIds.includes(user.id));
+                res.status(200).json(interestedUsers);
+              })
+              .catch(err => res.status(500).json({ err }));
+          })
+          .catch(err => res.status(500).json({ err }));
+      }
+
+
+      return res.status(200).json(users);
+    });
+});
+
 module.exports = router;
