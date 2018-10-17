@@ -187,7 +187,7 @@ router.get('/:user_id/interests', (req, res) => {
 
       const interests = userInterests.map(interest => database('interests')
         .where('id', interest.interest_id)
-        .then(foundInterest => foundInterest[0].name)
+        .then(foundInterest => foundInterest[0])
         .catch(err => res.status(500).json({ err })));
 
       Promise.all(interests)
