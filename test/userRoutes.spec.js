@@ -291,7 +291,9 @@ describe('USER API ROUTES', () => {
         res.should.be.json;
         res.body.should.be.a('array');
         res.body.length.should.equal(3);
-        res.body[0].should.equal('golf');
+        res.body[0].should.be.a('object');
+        res.body[0].name.should.equal('golf');
+        res.body[0].id.should.equal(1);
         done();
       });
   });
