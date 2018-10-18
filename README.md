@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/laurakwhit/travis-test.svg?branch=master)](https://travis-ci.org/laurakwhit/travis-test)
 
-* Resonses are in JSON format
+* Responses are in JSON format
 
 ## Table of Contents
 
