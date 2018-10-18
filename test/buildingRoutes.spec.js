@@ -213,4 +213,60 @@ describe('BUILDING API ROUTES', () => {
         done();
       });
   });
+
+  it('GET /api/v1/buildings/:building_id/users should return building users if response was ok', (done) => {
+    chai
+      .request(app)
+      .get('/api/v1/buildings/1/users')
+      .end((err, res) => {
+        res.should.have.status(200);
+        res.should.be.json;
+        res.body.should.be.a('array');
+        res.body[0].should.have.property('name');
+        res.body[0].name.should.equal('Gray Smith');
+        done();
+      });
+  });
+
+  it('GET /api/v1/buildings/:building_id/users should return a 404 if the building does not have any users', (done) => {
+    chai
+      .request(app)
+      .get('/api/v1/buildings/123/users')
+      .end((err, res) => {
+        res.should.have.status(404);
+        res.should.be.json;
+        res.body.should.be.a('object');
+        res.body.should.have.property('error');
+        res.body.error.should.equal('Could not find any users with building id: 123.');
+        done();
+      });
+  });
+
+  it('GET /api/v1/buildings/:building_id/users should return only users with a certain interest if a query param is passed', (done) => {
+    chai
+      .request(app)
+      .get('/api/v1/buildings/1/users?interest=golf')
+      .end((err, res) => {
+        res.should.have.status(200);
+        res.should.be.json;
+        res.body.should.be.a('array');
+        res.body[0].should.have.property('name');
+        res.body[0].name.should.equal('Gray Smith');
+        done();
+      });
+  });
+
+  it('GET /api/v1/buildings/:building_id/users return a 404 if there was no users found with that interest', (done) => {
+    chai
+      .request(app)
+      .get('/api/v1/buildings/1/users?interest=cheesemongering')
+      .end((err, res) => {
+        res.should.have.status(404);
+        res.should.be.json;
+        res.body.should.be.a('object');
+        res.body.should.have.property('error');
+        res.body.error.should.equal('Interest cheesemongering is not valid.');
+        done();
+      });
+  });
 });
