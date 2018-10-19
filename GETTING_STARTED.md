@@ -2,7 +2,7 @@
 
 This is a general guide to setting up the Building Buddies API on your local machine.
 
-### Dependencies 🔐
+### 🔐 Dependencies
 
 * Node.js ^10.0.0
 * PostgreSQL database
@@ -12,7 +12,7 @@ This is a general guide to setting up the Building Buddies API on your local mac
 If you are likely to need to manage multiple version of Node.js on your local machine, we recommend [NVM](https://github.com/creationix/nvm).
 
 
-### Get it  📌
+### 📌 Get it 
 
 If you're planning on contributing code to the project it is a good idea to begin by forking this repo using the `Fork` button in the top-right corner of this screen. You should then be able to use `git clone` to copy your fork onto your local machine.
 
@@ -30,7 +30,7 @@ Run the following command:
 
     npm install
 
-### Get it running 🏃
+### 🏃 Get it running 
 
 First, you need to create the developent and tests databasesthe app will use by manually typing the following in your terminal:
 
@@ -56,7 +56,7 @@ $ npm run dev
 
 Your server should now be running on http://localhost:5000 😀
 
-### Testing 📝
+### 📝 Testing 
 
 To run the test suite enter:
 
