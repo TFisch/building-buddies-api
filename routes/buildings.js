@@ -38,8 +38,8 @@ router.post('/', validateBuildingParams, (req, res) => {
         return res.status(409).json({ error: 'That building already exists.' });
       }
       return database('buildings')
-        .insert(newBuilding, 'id')
-        .then(building => res.status(201).json({ id: building[0] }))
+        .insert(newBuilding, ['id', 'name', 'address'])
+        .then(building => res.status(201).json(building[0]))
         .catch(err => res.status(500).json({ err }));
     })
     .catch(err => res.status(500).json({ err }));
@@ -53,14 +53,14 @@ router.put('/:building_id', validateBuildingParams, (req, res) => {
 
   database('buildings')
     .where('id', building_id)
-    .update(buildingData)
+    .update(buildingData, ['id', 'name', 'address'])
     .then((buildingId) => {
       if (buildingId === 0) {
         return res.status(404).json({
           error: `Could not find building with id ${building_id}.`,
         });
       }
-      return res.status(200).json({ id: buildingId });
+      return res.status(200).json(buildingId[0]);
     })
     .catch(err => res.status(500).json({ err }));
 });
@@ -74,7 +74,9 @@ router.delete('/:building_id', (req, res) => {
     .select()
     .then((building) => {
       if (building.length) {
-        database('buildings').where('id', building_id).del()
+        database('buildings')
+          .where('id', building_id)
+          .del()
           .then(() => res.status(200).json({ message: `Building ${building_id} was successfully deleted.` }))
           .catch(err => res.status(500).json({ err }));
       } else {
@@ -92,7 +94,9 @@ router.get('/:building_id/users', (req, res) => {
     .where('building_id', building_id)
     .then((users) => {
       if (!users.length) {
-        return res.status(404).json({ error: `Could not find any users with building id: ${building_id}.` });
+        return res
+          .status(404)
+          .json({ error: `Could not find any users with building id: ${building_id}.` });
       }
 
       if (req.query.interest) {
@@ -101,9 +105,7 @@ router.get('/:building_id/users', (req, res) => {
           .where('name', interest_name)
           .then((interest) => {
             if (!interest.length) {
-              return res
-                .status(404)
-                .json({ error: `Interest ${interest_name} is not valid.` });
+              return res.status(404).json({ error: `Interest ${interest_name} is not valid.` });
             }
 
             const userIds = users.map(user => user.id);
@@ -120,7 +122,6 @@ router.get('/:building_id/users', (req, res) => {
           })
           .catch(err => res.status(500).json({ err }));
       }
-
 
       return res.status(200).json(users);
     });
