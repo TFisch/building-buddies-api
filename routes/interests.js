@@ -26,8 +26,8 @@ router.post('/', validateInterestParam, (req, res) => {
         });
       }
       return database('interests')
-        .insert(newInterest, 'id')
-        .then(interest => res.status(201).json({ id: interest[0] }))
+        .insert(newInterest, ['id', 'name'])
+        .then(interest => res.status(201).json(interest[0]))
         .catch(err => res.status(500).json({ err }));
     })
     .catch(err => res.status(500).json({ err }));
