@@ -55,7 +55,7 @@ router.put('/:building_id', validateBuildingParams, (req, res) => {
     .where('id', building_id)
     .update(buildingData, ['id', 'name', 'address'])
     .then((buildingId) => {
-      if (buildingId === 0) {
+      if (buildingId.length === 0) {
         return res.status(404).json({
           error: `Could not find building with id ${building_id}.`,
         });
