@@ -94,7 +94,7 @@ router.put('/:user_id', validateUserParams, (req, res) => {
     .where('id', user_id)
     .update(updatedUser, ['id', 'name', 'email', 'password', 'building_id'])
     .then((user) => {
-      if (!user) {
+      if (user.length === 0) {
         return res.status(404).json({ error: `Could not find user with id: ${user_id}.` });
       }
       return res.status(200).json(user[0]);
