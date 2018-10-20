@@ -11,9 +11,7 @@ router.get('/', (req, res) => {
       .where('name', interest_name)
       .then((interest) => {
         if (!interest.length) {
-          return res
-            .status(404)
-            .json({ error: `Interest ${interest_name} is not valid.` });
+          return res.status(404).json({ error: `Interest ${interest_name} is not valid.` });
         }
         database('user_interests')
           .where('interest_id', interest[0].id)
@@ -68,13 +66,11 @@ router.post('/', validateUserParams, (req, res) => {
     .where('email', newUser.email)
     .then((response) => {
       if (response.length > 0) {
-        return res
-          .status(409)
-          .json({ error: 'An account with that email already exists.' });
+        return res.status(409).json({ error: 'An account with that email already exists.' });
       }
       database('users')
-        .insert(newUser, 'id')
-        .then(user => res.status(201).json({ id: user[0] }))
+        .insert(newUser, ['id', 'name', 'email', 'password', 'building_id'])
+        .then(user => res.status(201).json(user[0]))
         .catch(err => res.status(500).json({ err }));
     })
     .catch(err => res.status(500).json({ err }));
@@ -96,14 +92,12 @@ router.put('/:user_id', validateUserParams, (req, res) => {
 
   database('users')
     .where('id', user_id)
-    .update(updatedUser)
+    .update(updatedUser, ['id', 'name', 'email', 'password', 'building_id'])
     .then((user) => {
       if (!user) {
-        return res
-          .status(404)
-          .json({ error: `Could not find user with id: ${user_id}.` });
+        return res.status(404).json({ error: `Could not find user with id: ${user_id}.` });
       }
-      return res.status(200).json({ id: user });
+      return res.status(200).json(user[0]);
     });
 });
 
@@ -117,13 +111,9 @@ router.delete('/:user_id', (req, res) => {
     .del()
     .then((user) => {
       if (!user) {
-        return res
-          .status(404)
-          .json({ error: `Could not find user with id ${user_id}.` });
+        return res.status(404).json({ error: `Could not find user with id ${user_id}.` });
       }
-      return res
-        .status(200)
-        .json({ message: `User ${user_id} was successfully deleted.` });
+      return res.status(200).json({ message: `User ${user_id} was successfully deleted.` });
     });
 });
 
@@ -136,9 +126,7 @@ router.post('/:user_id/interests/:interest_id', (req, res) => {
     .where('interest_id', interest_id)
     .then((userInterest) => {
       if (userInterest.length) {
-        return res
-          .status(409)
-          .json({ error: 'Interest is already saved for this user.' });
+        return res.status(409).json({ error: 'Interest is already saved for this user.' });
       }
       return database('user_interests')
         .insert({ user_id, interest_id }, 'id')
@@ -157,9 +145,7 @@ router.delete('/:user_id/interests/:interest_id', (req, res) => {
     .where('interest_id', interest_id)
     .then((userInterest) => {
       if (!userInterest.length) {
-        return res
-          .status(404)
-          .json({ error: 'Could not find a matching user interest.' });
+        return res.status(404).json({ error: 'Could not find a matching user interest.' });
       }
       return database('user_interests')
         .where('id', userInterest[0].id)
@@ -180,9 +166,7 @@ router.get('/:user_id/interests', (req, res) => {
     .where('user_id', user_id)
     .then((userInterests) => {
       if (!userInterests.length) {
-        return res
-          .status(404)
-          .json({ error: `Could not find interests for user ${user_id}` });
+        return res.status(404).json({ error: `Could not find interests for user ${user_id}` });
       }
 
       const interests = userInterests.map(interest => database('interests')
