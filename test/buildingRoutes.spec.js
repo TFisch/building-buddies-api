@@ -6,14 +6,11 @@ chai.use(chaiHttp);
 
 describe('BUILDING API ROUTES', () => {
   beforeEach((done) => {
-    database.migrate.rollback()
-      .then(() => {
-        database.migrate.latest()
-          .then(() => database.seed.run()
-            .then(() => {
-              done();
-            }));
-      });
+    database.migrate.rollback().then(() => {
+      database.migrate.latest().then(() => database.seed.run().then(() => {
+        done();
+      }));
+    });
   });
 
   // should get all buildings
@@ -81,6 +78,8 @@ describe('BUILDING API ROUTES', () => {
         res.should.be.a('object');
         res.body.should.deep.equal({
           id: 241,
+          address: '123 fake stree',
+          name: 'Fake Building',
         });
         done();
       });
@@ -106,7 +105,6 @@ describe('BUILDING API ROUTES', () => {
       });
   });
 
-
   // should return a 422 if the a param is missing
   it('POST /api/v1/buildings should return a 422 if there is a missing param', (done) => {
     chai
@@ -118,7 +116,9 @@ describe('BUILDING API ROUTES', () => {
         res.should.be.json;
         res.body.should.be.a('object');
         res.body.should.have.property('error');
-        res.body.error.should.equal('Expected format: { name: <String>, address: <String> }. You\'re missing a "name" property.');
+        res.body.error.should.equal(
+          'Expected format: { name: <String>, address: <String> }. You\'re missing a "name" property.',
+        );
         done();
       });
   });
@@ -139,6 +139,8 @@ describe('BUILDING API ROUTES', () => {
         res.body.should.be.a('object');
         res.body.should.deep.equal({
           id: 1,
+          address: '1910 S Josephine St\nDenver, CO\n',
+          name: 'Modera Perrrrk',
         });
         done();
       });
@@ -179,7 +181,9 @@ describe('BUILDING API ROUTES', () => {
         res.should.be.json;
         res.body.should.be.a('object');
         res.body.should.have.property('error');
-        res.body.error.should.equal('Expected format: { name: <String>, address: <String> }. You\'re missing a "name" property.');
+        res.body.error.should.equal(
+          'Expected format: { name: <String>, address: <String> }. You\'re missing a "name" property.',
+        );
         done();
       });
   });

@@ -6,14 +6,11 @@ chai.use(chaiHttp);
 
 describe('INTEREST API ROUTES', () => {
   beforeEach((done) => {
-    database.migrate.rollback()
-      .then(() => {
-        database.migrate.latest()
-          .then(() => database.seed.run()
-            .then(() => {
-              done();
-            }));
-      });
+    database.migrate.rollback().then(() => {
+      database.migrate.latest().then(() => database.seed.run().then(() => {
+        done();
+      }));
+    });
   });
 
   // it should return all the interests
@@ -48,6 +45,7 @@ describe('INTEREST API ROUTES', () => {
         res.body.should.be.a('object');
         res.body.should.deep.equal({
           id: 15,
+          name: 'tennis',
         });
         done();
       });
@@ -67,7 +65,9 @@ describe('INTEREST API ROUTES', () => {
         res.should.be.json;
         res.body.should.be.a('object');
         res.body.should.have.property('error');
-        res.body.error.should.equal('Expected format: { name: <String> }. You\'re missing a name property.')
+        res.body.error.should.equal(
+          "Expected format: { name: <String> }. You're missing a name property.",
+        );
         done();
       });
   });
